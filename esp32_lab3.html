@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESP32 - Laboratorios</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            color: #333;
+        }
+        .laboratorio {
+            margin: 20px auto;
+            max-width: 1200px; /* Mayor ancho para el contenido */
+            text-align: justify; /* Justificar texto */
+        }
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5em; /* Aumentar tamaño del título */
+        }
+        h2, h3 {
+            color: #2c3e50;
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 60px;
+        }
+        li {
+            margin-bottom: 15px; /* Espacio entre cada subpunto */
+        }
+        .video-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow: auto;
+        }
+        .image-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .info-image {
+            max-width: 100%; /* Asegurar que la imagen no exceda el ancho */
+            height: auto; /* Mantener la proporción de la imagen */
+            border-radius: 5px; /* Bordes redondeados */
+            width: 560px; /* Ancho fijo similar al video */
+            height: 315px; /* Alto fijo para las imágenes */
+        }
+        .header-image {
+            max-width: 100%; /* Ancho total para la imagen de presentación */
+            height: auto; /* Mantener proporción */
+            border-radius: 5px; /* Bordes redondeados */
+            width: 70%; /* Ancho más pequeño del texto */
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="nav-items">
+            <li class="nav-item">
+                <a href="index.html" class="nav-link">INICIO</a>
+            </li>
+            <li class="nav-item">
+                <img src="usco.png" alt="USCO Logo" class="nav-img">
+            </li>
+        </ul>
+    </nav>
+
+    <div class="informacion">
+        <h1>Laboratorios - ESP32</h1>
+        <p>Contenido específico de laboratorios de ESP32.</p>
+        
+        <!-- Imagen de presentación -->
+        <div class="image-container">
+            <img src="miniaturaesp32.jpg" alt="Proyectos con la ESP32" class="header-image">
+        </div>
+    </div>
+
+    <div class="laboratorio">
+        <h2>Laboratorio: Medición de Calidad del Aire</h2>
+        <p>Este laboratorio utiliza el sensor MQ135 para medir la calidad del aire y el DHT11 para monitorear la temperatura y la humedad. La integración de estos sensores con Arduino IoT Cloud permite el monitoreo en tiempo real, facilitando la visualización de datos cruciales para la salud y el bienestar.</p>
+
+        <h3>Importancia de los Laboratorios Caseros</h3>
+        <p>Los laboratorios caseros ofrecen la oportunidad de aprender y experimentar con tecnología en un entorno accesible. Fomentan la creatividad y la innovación, permitiendo a los estudiantes y entusiastas desarrollar habilidades en programación y electrónica. Proyectos como este son fundamentales para entender la calidad del aire en entornos urbanos, donde la contaminación puede afectar la salud pública.</p>
+
+        <h3>Componentes Utilizados:</h3>
+        <ul>
+            <li>ESP32</li>
+            <li>Sensor MQ135 (Calidad del aire)</li>
+            <li>Sensor DHT11 (Temperatura y humedad)</li>
+            <li>Conexiones eléctricas (cables, protoboard, etc.)</li>
+        </ul>
+
+        <h3>Descripción del Proyecto</h3>
+        <p>El objetivo principal de este laboratorio es construir un sistema que monitoree la calidad del aire en tiempo real. Utilizando el sensor MQ135, se pueden detectar diversos gases nocivos, mientras que el DHT11 proporciona información sobre la temperatura y la humedad. Estos datos se envían a Arduino IoT Cloud, donde se pueden visualizar a través de un dashboard en una aplicación móvil.</p>
+
+        <div class="image-container">
+            <img src="proymq135.jpg" alt="Proyecto MQ135 y DHT11" class="info-image">
+            <p>Los sensores MQ135 y DHT11 junto a un dispositivo móvil mostrando datos en tiempo real.</p>
+        </div>
+
+        <h3>Código de Arduino:</h3>
+        <pre><code>
+#include "arduino_secrets.h"
+#include "thingProperties.h"
+#include "DHT.h"
+#define DHTpin 4 // D4 on the nodemcu ESP32
+#define DHTTYPE DHT11
+DHT dht(DHTpin,DHTTYPE);
+int sensor = 34;
+
+void setup() {
+    Serial.begin(9600);
+    delay(1500); 
+    initProperties();
+    ArduinoCloud.begin(ArduinoIoTPreferredConnection);
+    setDebugMessageLevel(2);
+    ArduinoCloud.printDebugInfo();
+}
+
+void loop() {
+    ArduinoCloud.update();
+    float hm = dht.readHumidity();
+    Serial.print("Humidity ");
+    Serial.println(hm);
+    float temp = dht.readTemperature();
+    Serial.print("Temperature ");
+    Serial.println(temp);
+    humidity = hm;
+    temperature = temp;
+
+    int airqualityvalue = analogRead(sensor);
+    Serial.print("Gas Value: ");
+    Serial.println(airqualityvalue);
+    airQuality = airqualityvalue;
+    message = "Temperature = " + String(temperature) + "  Humidity = " + String(humidity) + "  Air Quality = " + String(airqualityvalue);
+}
+        </code></pre>
+
+        <h3>Procedimiento:</h3>
+        <ol>
+            <li>Conectar el sensor MQ135 y el DHT11 al ESP32 siguiendo el esquema de conexión.</li>
+            <li>Programar el ESP32 utilizando el código proporcionado.</li>
+            <li>Configurar la comunicación con Arduino IoT Cloud.</li>
+            <li>Visualizar los datos en la aplicación móvil.</li>
+        </ol>
+
+        <h3>Paso a Paso: Configuración en Arduino Cloud</h3>
+        <ol>
+            <li><strong>Crea una cuenta en Arduino IoT Cloud:</strong> Visita el sitio web de Arduino y regístrate si no tienes una cuenta.</li>
+            <li><strong>Crear un "Thing":</strong> En el panel de control, selecciona "Create Thing". Nombra tu "Thing" y selecciona el tipo de dispositivo (en este caso, ESP32).</li>
+            <li><strong>Agregar Variables:</strong> Añade las variables necesarias para tu proyecto:
+                <ul>
+                    <li>message (String)</li>
+                    <li>temperature (CloudTemperatureSensor)</li>
+                    <li>humidity (CloudPercentage)</li>
+                    <li>airQuality (CloudPercentage)</li>
+                </ul>
+            </li>
+            <li><strong>Crear un Dashboard:</strong> Ve a la sección "Dashboard" y crea un nuevo dashboard. Agrega widgets para mostrar la temperatura, la humedad y la calidad del aire.</li>
+            <li><strong>Configurar Conexiones:</strong> Asegúrate de que tu ESP32 esté conectado a la red Wi-Fi y que esté emparejado con tu "Thing" en Arduino Cloud.</li>
+            <li><strong>Visualizar los Datos:</strong> Abre la aplicación móvil de Arduino IoT Cloud y accede a tu dashboard para visualizar los datos en tiempo real.</li>
+        </ol>
+
+        <h3>Imagen del Dashboard:</h3>
+        <div class="image-container">
+            <img src="dashboardesp32.jpg" alt="Dashboard ESP32" class="info-image">
+            <p>Visualización del dashboard en Arduino IoT Cloud.</p>
+        </div>
+
+        <h3>Conclusión</h3>
+        <p>El laboratorio realizado no solo demuestra la capacidad del ESP32 para integrar diferentes sensores y enviar datos a la nube, sino que también destaca la importancia de monitorear la calidad del aire. Esta experiencia proporciona conocimientos prácticos sobre la electrónica y la programación, y resalta el impacto que estos proyectos pueden tener en la concienciación ambiental.</p>
+        <p>En futuras iteraciones, se podrían incorporar sensores adicionales para medir otros parámetros ambientales, así como implementar un sistema de alertas para notificar a los usuarios cuando los niveles de contaminación superen ciertos umbrales.</p>
+
+        <h3>Video Tutorial:</h3>
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/gyEXT2BwaRs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+</body>
+</html>

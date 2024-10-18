@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FPGA - Lección</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .quiz-container {
+            margin: 20px;
+        }
+        .question {
+            margin-bottom: 15px;
+        }
+        .question h3 {
+            margin-bottom: 10px;
+        }
+        .submit-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="nav-items">
+            <li class="nav-item">
+                <a href="index.html" class="nav-link">INICIO</a>
+            </li>
+            <li class="nav-item">
+                <img src="usco.png" alt="USCO Logo" class="nav-img">
+            </li>
+        </ul>
+    </nav>
+
+    <div class="informacion">
+        <h1>Lección - FPGA</h1>
+        <p>Lección de cinco preguntas sobre FPGA.</p>
+    </div>
+
+    <div class="quiz-container">
+        <form id="quiz-form">
+            <!-- Pregunta 1 -->
+            <div class="question">
+                <h3>1. ¿Qué es una FPGA?</h3>
+                <input type="radio" id="p1a" name="q1" value="incorrecto">
+                <label for="p1a">Una unidad de procesamiento gráfico</label><br>
+                <input type="radio" id="p1b" name="q1" value="incorrecto">
+                <label for="p1b">Un tipo de memoria</label><br>
+                <input type="radio" id="p1c" name="q1" value="correcto">
+                <label for="p1c">Un arreglo de puertas lógicas programable</label>
+            </div>
+
+            <!-- Pregunta 2 -->
+            <div class="question">
+                <h3>2. ¿En qué lenguaje se programa una FPGA?</h3>
+                <input type="radio" id="p2a" name="q2" value="correcto">
+                <label for="p2a">VHDL o Verilog</label><br>
+                <input type="radio" id="p2b" name="q2" value="incorrecto">
+                <label for="p2b">JavaScript</label><br>
+                <input type="radio" id="p2c" name="q2" value="incorrecto">
+                <label for="p2c">Python</label>
+            </div>
+
+            <!-- Pregunta 3 -->
+            <div class="question">
+                <h3>3. ¿Cuál es una de las principales ventajas de usar una FPGA?</h3>
+                <input type="radio" id="p3a" name="q3" value="correcto">
+                <label for="p3a">Se puede reprogramar varias veces</label><br>
+                <input type="radio" id="p3b" name="q3" value="incorrecto">
+                <label for="p3b">Es más barata que todos los microprocesadores</label><br>
+                <input type="radio" id="p3c" name="q3" value="incorrecto">
+                <label for="p3c">Tiene una vida útil limitada</label>
+            </div>
+
+            <!-- Pregunta 4 -->
+            <div class="question">
+                <h3>4. ¿Qué significa FPGA?</h3>
+                <input type="radio" id="p4a" name="q4" value="incorrecto">
+                <label for="p4a">Fixed Processor General Array</label><br>
+                <input type="radio" id="p4b" name="q4" value="correcto">
+                <label for="p4b">Field Programmable Gate Array</label><br>
+                <input type="radio" id="p4c" name="q4" value="incorrecto">
+                <label for="p4c">Fully Programmable Grid Array</label>
+            </div>
+
+            <!-- Pregunta 5 -->
+            <div class="question">
+                <h3>5. ¿Qué tipo de aplicaciones se pueden desarrollar con FPGA?</h3>
+                <input type="radio" id="p5a" name="q5" value="correcto">
+                <label for="p5a">Procesamiento de señales y sistemas embebidos</label><br>
+                <input type="radio" id="p5b" name="q5" value="incorrecto">
+                <label for="p5b">Edición de imágenes</label><br>
+                <input type="radio" id="p5c" name="q5" value="incorrecto">
+                <label for="p5c">Desarrollo de videojuegos</label>
+            </div>
+
+            <!-- Botón para enviar -->
+            <button type="button" class="submit-btn" onclick="calcularResultado()">Enviar</button>
+        </form>
+
+        <!-- Mostrar el resultado -->
+        <div id="resultado" class="result"></div>
+    </div>
+
+    <script>
+        function calcularResultado() {
+            // Obtener las respuestas seleccionadas
+            var q1 = document.querySelector('input[name="q1"]:checked');
+            var q2 = document.querySelector('input[name="q2"]:checked');
+            var q3 = document.querySelector('input[name="q3"]:checked');
+            var q4 = document.querySelector('input[name="q4"]:checked');
+            var q5 = document.querySelector('input[name="q5"]:checked');
+
+            var correctas = 0;
+
+            // Verificar respuestas
+            if (q1 && q1.value === "correcto") {
+                correctas++;
+            }
+            if (q2 && q2.value === "correcto") {
+                correctas++;
+            }
+            if (q3 && q3.value === "correcto") {
+                correctas++;
+            }
+            if (q4 && q4.value === "correcto") {
+                correctas++;
+            }
+            if (q5 && q5.value === "correcto") {
+                correctas++;
+            }
+
+            // Mostrar el resultado
+            var resultadoDiv = document.getElementById('resultado');
+            resultadoDiv.textContent = "Has obtenido " + correctas + " de 5 respuestas correctas.";
+        }
+    </script>
+</body>
+</html>

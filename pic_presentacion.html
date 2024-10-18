@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PICmicrochip - Presentación</title>
+    <link rel="stylesheet" href="tema3.css">
+    <style>
+        th {
+        text-align: center;
+        padding: 10px;
+        background-color: #f7b2b2;
+    }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="nav-items">
+            <li class="nav-item">
+                <a href="index.html" class="nav-link">INICIO</a>
+            </li>
+            <li class="nav-item">
+                <img src="usco.png" alt="USCO Logo" class="nav-img">
+            </li>
+        </ul>
+    </nav>
+    <div class="informacion">
+        <h1>Presentación - PIC microchip</h1>
+        <h3>Contenido específico  de PIC en electrónica digital II</h3>
+        
+    </div>
+    <div class="informacion1">
+        <h1>PICmicrochip</h1>
+        <div class="content">
+            <p>En este curso encontrarás conceptos básicos acerca de los microcontroladores PIC, los tipos de programación que se pueden utilizar y como programar los PIC de manera adecuada. 
+                Esta página está dirigida a todas las personas que se han preguntado alguna vez qué es un PIC, para qué sirve, cómo puede ser utilizado en la vida real y como programarlo correctamente. 
+                Con la información aquí presente tendrás los fundamentos principales para convertirte en un gran programador y diseñar tus propios proyectos para aplicarlos en la solución de problemas 
+                prácticos.</p>
+        </div>
+    </div>
+    <div class="informacion1">
+        <h2>Microcontroladores PIC</h2>
+        <div class="content">
+            <p>Los microcontroladores PIC (conocidos simplemente como PIC) son circuitos integrados programables que pueden ejecutar
+                un sinnúmero de tareas y procesos de forma automática. El programa se escribe en un computador en un ambiente de programación adecuado
+                (por ejemplo en lenguaje C) y luego se transfiere como código binario a la memoria de programa del microcontrolador para su ejecución
+                en el momento de encendido del dispositivo. Los microcontroladores PIC son fabricados por la empresa Microchip y constan básicamente de una CPU,
+                espacios de memoria para el programa (ROM), memoria para los datos (RAM), y varios periféricos o puertos para la interacción con el mundo externo (lineas de entrada/salida), 
+                todo esto encapsulado dentro de un solo chip de silicio. </p>
+            <img src="pic.jpg" alt="PICmicrochip" class="info-image">
+        </div>
+        <div class="content">
+            <p>Existen diferentes familias de microcontoladores, tales como: Intel, Altair, Siemens, Basic Stamp, Microchip, National Semiconductor, Motorola, 
+            Freescale, Texas Instruments, Atmel, entre otros.
+        </div>
+        <div class="content">
+            <p>Como modo efectos de estudio se tomará como referencia el microcontrolador PIC16F887, el cual pertenece a la familia de los microchips. Todos los conocimientos 
+            adquiridos a partir de esta referencia, puede ser implementada a otro microcontrolador de la familia PIC16 o PIC18. Estos microcontroladores pertenecen a la familia 
+            RISC fabricados por Micrichip Tecnology Inc y posee una arquitectura Harvard caracterizada por la independencia entre la memoria de código 
+            y la de datos.
+            </p>
+        </div>
+    </div>  
+    <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/b7mHjUVcLJw?list=PLONPO-iVba9nbY_KTCHt9GGj9dGSj1qYo&index=2" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen></iframe>
+    </div>
+    <div class="informacion1">
+        <h2>Tipos de Microcontroladores PIC</h2>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Familia</th>
+                    <th>Modelos</th>
+                    <th>Características</th>
+                    <th>Aplicaciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Gama Baja</td>
+                    <td>PIC10, PIC12, PIC16 (Modelos Básicos)</td>
+                    <td>
+                        <ul>
+                            <li>Arquitectura RISC de 8 bits con conjunto de instrucciones limitado.</li>
+                            <li>Bajo número de pines (6-8).</li>
+                            <li>Memoria Flash, EEPROM y RAM limitadas.</li>
+                            <li>Periféricos básicos (temporizadores, entrada/salida).</li>
+                            <li>Bajo consumo de energía.</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            <li>Controladores simples (temporizadores, control de LED).</li>
+                            <li>Dispositivos portátiles de bajo consumo.</li>
+                            <li>Sistemas embebidos compactos.</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Gama Media</td>
+                    <td>PIC16F877A, PIC16F887</td>
+                    <td>
+                        <ul>
+                            <li>Arquitectura RISC de 8 bits con ejecución rápida.</li>
+                            <li>Memoria Flash, EEPROM y RAM moderadas.</li>
+                            <li>Periféricos integrados (temporizadores, ADC, UART, SPI, I2C).</li>
+                            <li>Documentación extensa y facilidad de uso.</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            <li>Proyectos educativos.</li>
+                            <li>Automatización simple y control de sensores.</li>
+                            <li>Dispositivos médicos portátiles.</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Gama Alta</td>
+                    <td>PIC18F452, PIC18F4550</td>
+                    <td>
+                        <ul>
+                            <li>Arquitectura de 8 bits mejorada con más registros y instrucciones.</li>
+                            <li>Mayor memoria Flash, EEPROM y RAM.</li>
+                            <li>Interfaz USB (en el PIC18F4550).</li>
+                            <li>Arquitectura abierta y versátil para múltiples interfaces.</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            <li>Interfaces USB y sistemas de adquisición de datos.</li>
+                            <li>Controladores de comunicaciones y robots complejos.</li>
+                            <li>Aplicaciones con conectividad a PC.</li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="informacion1">
+        <h2>¿Por qué usar un Microcontrolador PIC?</h2>
+        <div class="content">
+            <p>El microcontrolador PIC es popular por su combinación de bajo costo, flexibilidad, eficiencia energética y simplicidad en el software. Su arquitectura le permite ser una opción ideal tanto para principiantes como para proyectos avanzados en diversas áreas como la industria, transporte, aviación, medicina y comunicaciones.</p>
+        </div>
+    </div>
+
+    <div class="informacion1">
+        <h2>Ventajas de utilizar un microcontrolador PIC</h2>
+        <div class="content">
+            <ul>
+                
+                <p>*<strong>Bajo costo:</strong> Los microcontroladores PIC son económicos, lo que los hace ideales para la fabricación de productos a bajo costo.</p>
+                <p>*<strong>Diseño flexible:</strong> Gracias a su arquitectura Harvard y la posibilidad de conectar una gran cantidad de periféricos, los microcontroladores PIC se pueden utilizar en una amplia gama de aplicaciones, desde la industria hasta la medicina.</p>
+                <p>*<strong>Software sencillo:</strong> La uniformidad del software PIC facilita la depuración y la resolución de problemas, lo que es especialmente beneficioso para los principiantes.</p>
+                <p>*<strong>Bajo consumo de energía:</strong> Los microcontroladores PIC consumen poca energía, lo que los hace adecuados para dispositivos pequeños que requieren eficiencia energética.</p>
+                <p>*<strong>Rápida ejecución:</strong> Las instrucciones en los PIC suelen ejecutarse en un solo ciclo de reloj (1μS con un reloj de 4MHz), lo que permite operaciones rápidas.</p>
+                
+            </ul>
+        </div>
+    </div>
+    
+    <div class="informacion1">
+        <h2>Limitaciones del uso de microcontroladores PIC</h2>
+        <div class="content">
+            <ul>
+                <p>*<strong>Programabilidad limitada:</strong> Comparado con microcontroladores más grandes, los PIC tienen menos características programables, lo que puede dificultar la personalización del hardware para necesidades específicas.</p>
+                <p>*<strong>Recursos limitados:</strong> Los PIC son de bajo costo, lo que también significa que tienen menos recursos asignados, lo que puede extender los tiempos de desarrollo y afectar el rendimiento en proyectos más complejos.</p>
+                <p>*<strong>Instrucciones limitadas:</strong> Los microcontroladores PIC de la familia 16F, por ejemplo, tienen solo 35 instrucciones debido a su arquitectura RISC, lo que puede complicar la vida del programador. Sin embargo, usar un lenguaje de programación como C con un compilador como PIC C Compiler CCS C puede simplificar el desarrollo.</p>
+            </ul>
+        </div>
+    </div>
+    <div class="informacion1">
+        <h2>Lenguajes de programación para PIC</h2>
+            <div class="content">
+              <p>El microcontrolador ejecuta el programa cargado en la memoria Flash. Esto se denomina el código ejecutable y está compuesto por una serie de ceros y unos, 
+                aparentemente sin significado. Dependiendo de la arquitectura del microcontrolador, el código binario está compuesto por palabras de 12, 14 o 16 bits de anchura. 
+                Cada palabra se interpreta por la CPU como una instrucción a ser ejecutada durante el funcionamiento del microcontrolador. Todas las instrucciones que el 
+                microcontrolador puede reconocer y ejecutar se les denominan colectivamente Conjunto de instrucciones. Como es más fácil trabajar con el sistema de numeración 
+                hexadecimal, el código ejecutable se representa con frecuencia como una serie de los números hexadecimales denominada código Hex.</p>
+                <img src="tema3_1.jpg" alt="Lenguajes de programación" class="info-image">
+            </div>
+            <div class="content">
+                <p>Existen diversos lenguajes de programación (alto nivel, bajo nivel y nivel medio) que se pueden utilizar para programar el microcontrolador PIC, estos son: </p>
+            </div>
+            <div class="content">
+                <p>* Lenguaje ensamblador (Assembler): es un lenguaje de programación de bajo nivel, y se traduce a código máquina mediante un programa ensamblador. El lenguaje 
+                    ensamblador actúa como un intermediario entre el código máquina y los lenguajes de alto nivel, ofreciendo una comunicación más directa con el hardware. Cada 
+                    familia de procesadores posee su propio lenguaje ensamblador, vinculado estrechamente a su arquitectura específica.
+                </p>
+            </div>
+            <div class="content">
+                <p>* Lenguaje C: es un lenguaje de nivel medio bajo, así que no requiere de muchos recursos pero ofrece una buena respuesta y una ejecución rápida de programas. 
+                    El lenguaje de programación C ha sido una piedra angular en el desarrollo de software durante más de cuatro décadas. Ha influido en numerosos lenguajes modernos 
+                    y sigue siendo una elección popular para sistemas críticos.
+                </p>
+            </div>
+            <div class="content">
+                <p>* Lenguaje C++: es un lenguaje de alto nivel, C++ también es un ejemplo de lenguaje de programación compilado, multiparadigma, principalmente de tipo imperativo y 
+                    orientado a objetos, incluyendo también programación genérica y funcional. Un programa escrito en un lenguaje imperativo es un conjunto de instrucciones que indican 
+                    al computador cómo realizar una tarea.
+                 </p>
+            </div>
+            <div class="content">
+                <p>* Python: Python es un lenguaje de programación de alto nivel ampliamente utilizado en las aplicaciones web, el desarrollo de software, la ciencia de datos y el machine learning (ML). 
+                    Los desarrolladores utilizan Python porque es eficiente y fácil de aprender, además de que se puede ejecutar en muchas plataformas diferentes. </p>
+            </div>
+            <div class="content">
+                <p>* Micropython: es una implementación software del lenguaje de programación Python 3, escrita en C, y que está optimizada para poder ejecutarse en un microcontrolador. 
+                    MicroPython es un compilador completo del lenguaje Python y un motor e intérprete en tiempo de ejecución, que funciona en el hardware del microcontrolador. </p>
+            </div>
+            <div class="content">
+                <p>* Java: es un lenguaje de programación de alto nivel ampliamente utilizado para codificar aplicaciones web. Ha sido una opción popular entre los desarrolladores durante más de dos décadas, 
+                    con millones de aplicaciones Java en uso en la actualidad. Java es un lenguaje multiplataforma, orientado a objetos y centrado en la red que se puede utilizar como una 
+                    plataforma en sí mismo. 
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="informacion1">
+        <h2>Programador PICkit</h2>
+            <div class="content">
+              <p>Son dispositivos que permiten depurar y programar de forma rápida y sencilla los microcontroladores PIC, 
+                estos dispositivos utilizan el entorno de desarrollo integrado MPLAB desarrollado por Microchip 
+                el cual trabaja sobre plataformas de Windows.<br>
+                <br>
+              Existen diversas versiones de PICkit tales como el PICkit2, PICkit3, PICkit3.5 y PICkit4, sin embargo la versión 
+              más conocida y utilizada es el PICkit3, por tal motivo utilizaremos esta versión para llevar a cabo los laboratorios 
+              propuestos.</p>
+                 <img src="tema3_2.jpg" alt="Lenguajes de programación" class="info-image">
+        </div>
+        <div class="informacion1">
+            <h2>Anexos</h2><br>
+            <h3>Conexiones Pickit3</h3>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/xW3BKgg9MPg" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen></iframe>
+            </div>                        
+        </div>
+        <div class="informacion1">
+            <h3>Cargar código desde MPLABX</h3>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/azO7Tqu1B3Q" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen></iframe>
+            </div>                
+        </div>
+    </div>
+    <div class="informacion1">
+        <h3>Guia de instalación de programas para progaramar PIC</h3>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/tDg9t8J-ZB8" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen></iframe>
+        </div>        
+    </div>
+    <div class="informacion1">
+        <h3>Manejo del entorno de programación</h3>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/pKOBLoXJGHg?list=PLONPO-iVba9kbeA3TsLf1ZyY9HBqoLGDe&index=3" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen></iframe>
+        </div>               
+    </div>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESP32 - Laboratorios</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            background-color: #a50b0b;
+            padding: 1em;
+        }
+        .nav-items {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: space-between;
+            
+        }
+        .nav-link {
+            color: white;
+            text-decoration: none;
+        }
+        .nav-img {
+            width: 50px;
+            height: auto;
+        }
+        .informacion {
+            text-align: center;
+            margin: 20px;
+        }
+        .lab-container {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 20px 0;
+            border: 1px solid #ddd;
+            padding: 15px;
+        }
+        .lab-img {
+            flex: 1;
+            min-width: 200px;
+            padding: 10px;
+        }
+        .lab-img img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .lab-text {
+            flex: 2;
+            padding: 10px;
+            margin-top: 100px;
+        }
+        .lab-text h2 {
+            margin-top: 0;
+        }
+        .lab-text p {
+            margin: 0;
+        }
+            .lab-link {
+        display: inline-block; /* Asegura que el botón ocupe solo el espacio de su contenido */
+        margin-top: 10px;
+        padding: 10px 20px;
+        background-color: #dd1515;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        
+    }
+
+    .lab-text {
+        flex: 2;
+        padding: 10px;
+        text-align: center; /* Mantén el texto alineado a la izquierda */
+    }
+
+    .lab-text .lab-link {
+        display: inline-block; /* Asegura que solo ocupe el espacio necesario */
+        margin: 10px 0; /* Ajusta el margen para separarlo del texto */
+    }
+
+
+        .lab-link:hover {
+            background-color: #0056b3;
+        }
+
+        /* Responsivo para móviles */
+        @media (max-width: 768px) {
+            .lab-container {
+                flex-direction: column;
+            }
+            .lab-img, .lab-text {
+                flex: 100%;
+                max-width: 100%;
+            }
+            .lab-img {
+                order: 1;
+            }
+            .lab-text {
+                order: 2;
+                margin: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="nav-items">
+            <li class="nav-item">
+                <a href="index.html" class="nav-link">INICIO</a>
+            </li>
+            <li class="nav-item">
+                <img src="usco.png" alt="USCO Logo" class="nav-img">
+            </li>
+        </ul>
+    </nav>
+    <div class="informacion">
+        <h1>Laboratorios - ESP32</h1>
+        <p>Contenido específico de laboratorios de ESP32.</p>
+    </div>
+
+    <!-- Laboratorio 1: Control de un LED -->
+    <div class="lab-container">
+        <div class="lab-img">
+            <img src="Esp32Led.png" alt="Laboratorio LED ESP32">
+        </div>
+        <div class="lab-text">
+            <h2>Laboratorio 1: Control de un LED con ESP32</h2>
+            <p>Este laboratorio te enseñará cómo encender y apagar un LED utilizando el GPIO del ESP32. Ideal para empezar a interactuar con hardware y aprender lo básico.</p>
+            <a href="esp32_lab1.html" class="lab-link">Realizar el laboratorio</a>
+        </div>
+    </div>
+
+    <!-- Laboratorio 2: Lectura de Temperatura -->
+    <div class="lab-container">
+        <div class="lab-img">
+            <img src="Esp32Dht11.webp" alt="Laboratorio Sensor DHT11">
+        </div>
+        <div class="lab-text">
+            <h2>Laboratorio 2: Lectura de Temperatura con DHT11</h2>
+            <p>Aprende a usar el sensor DHT11 para medir temperatura y humedad con el ESP32 y mostrar los resultados en el monitor serial.</p>
+            <a href="esp32_lab2.html" class="lab-link">Realizar el laboratorio</a>
+        </div>
+    </div>
+
+    <!-- Laboratorio 3: Detector de Gas con MQ135 -->
+    <div class="lab-container">
+        <div class="lab-img">
+            <img src="Esp32Mq135.png" alt="Laboratorio Sensor MQ135">
+        </div>
+        <div class="lab-text">
+            <h2>Laboratorio 3: Detector de Gas con Sensor MQ135</h2>
+            <p>Implementa un sistema para detectar gases con el sensor MQ135 y el ESP32. Ideal para proyectos relacionados con monitoreo ambiental.</p>
+            <a href="esp32_lab3.html" class="lab-link">Realizar el laboratorio</a>
+        </div>
+    </div>
+</body>
+</html>
+

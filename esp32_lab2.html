@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratorio 2 - Lectura de Temperatura con DHT11</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+         /* Para centrar el contenido */
+        }
+
+        .navbar {
+            background-color: rgb(154, 6, 6); /* Cambiado a rojo */
+            padding: 15px;
+        }
+
+        .nav-items {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .nav-img {
+            width: 50px;
+            height: auto;
+        }
+
+        .informacion {
+            padding: 20px;
+            background-color: white;
+            margin: 20px auto; /* Centra horizontalmente */
+            border-radius: 8px;
+            max-width: 1200px;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        .video-container {
+            display: flex;
+            justify-content: center;
+            margin: 20px;
+        }
+
+        iframe {
+            width: 100%;
+            max-width: 800px;
+            height: 450px;
+        }
+
+        /* Estilos para el div del código */
+        .code-container {
+            background-color: #eee;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px auto;
+            max-width: 1200px;
+            text-align: left;
+        }
+
+        .code-container pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-left: 5px solid #ccc;
+            white-space: pre-wrap; /* Para que se ajuste el código */
+        }
+
+        .code-title {
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="nav-items">
+            <li class="nav-item">
+                <a href="esp32_laboratorios.html" class="nav-link">LABORATORIOS</a>
+            </li>
+            <li class="nav-item">
+                <img src="usco.png" alt="USCO Logo" class="nav-img">
+            </li>
+        </ul>
+    </nav>
+
+    <div class="informacion">
+        <h1>Laboratorio 2 - Lectura de Temperatura con DHT11</h1>
+
+        <h2>Introducción</h2>
+        <p>Aprende a usar el sensor DHT11 para medir temperatura y humedad con el ESP32 y mostrar los resultados en el monitor serial.</p>
+
+        <h2>Justificación</h2>
+        <p>El uso de sensores ambientales es esencial para cualquier proyecto de automatización o monitoreo, ya que permiten medir variables físicas como la temperatura y humedad.</p>
+
+        <h2>Objetivos</h2>
+        <ul>
+            <li>Conectar el sensor DHT11 al ESP32.</li>
+            <li>Leer los datos de temperatura y humedad.</li>
+        </ul>
+
+        <h2>Problema</h2>
+        <p>¿Cómo se puede leer y visualizar la temperatura y humedad utilizando un ESP32 y un sensor DHT11?</p>
+
+        <h2>Requerimientos</h2>
+        <ul>
+            <li>ESP32</li>
+            <li>Sensor DHT11</li>
+            <li>Cables para conexión</li>
+            <li>Breadboard</li>
+        </ul>
+
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/K98h51XuqBE"
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!-- Código del laboratorio -->
+    <div class="code-container">
+        <div class="code-title">Código para la Lectura de Temperatura y Humedad con DHT11</div>
+        <pre>
+#include &lt;DHT.h&gt;
+
+#define DHTPIN 4     // Pin donde se conecta el sensor DHT
+#define DHTTYPE DHT11 // Modelo del sensor
+
+DHT dht(DHTPIN, DHTTYPE);
+
+void setup() {
+    Serial.begin(9600);
+    dht.begin();
+}
+
+void loop() {
+    float h = dht.readHumidity();    // Lectura de la humedad
+    float t = dht.readTemperature(); // Lectura de la temperatura
+
+    if (isnan(h) || isnan(t)) {
+        Serial.println("Error al leer el sensor DHT");
+        return;
+    }
+
+    Serial.print("Humedad: ");
+    Serial.print(h);
+    Serial.print(" %\t");
+    Serial.print("Temperatura: ");
+    Serial.print(t);
+    Serial.println(" *C ");
+    delay(2000); // Esperamos 2 segundos antes de la siguiente lectura
+}
+        </pre>
+    </div>
+</body>
+</html>

@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PICmicrochip - Laboratorios</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    .informacion p {
+        text-align: justify;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+</style>
+<body>
+    <nav class="navbar">
+        <ul class="nav-items">
+            <li class="nav-item">
+                <a href="index.html" class="nav-link">INICIO</a>
+            </li>
+            <li class="nav-item">
+                <img src="usco.png" alt="USCO Logo" class="nav-img">
+            </li>
+        </ul>
+    </nav>
+
+    <div class="informacion">
+        <h1>Laboratorios - PIC microchip</h1>
+        <h3>Contenido específico de laboratorios de PIC microchip.</h3>
+        <p> Los montajes de los proyectos se realizaron con SimulIDE, una herramienta de simulación intuitiva diseñada para estudiantes, aficionados y profesionales en el ámbito de la electrónica y programación. Esta aplicación ofrece un entorno gráfico para simular circuitos utilizando componentes como LEDs, pulsadores, contadores y pantallas LCD, permitiendo experimentar con la lógica de control sin necesidad de hardware físico, lo que facilita el aprendizaje y la experimentación. Con SimulIDE, los usuarios pueden visualizar el funcionamiento de sus circuitos en tiempo real, lo que mejora la comprensión de concepto. 
+            Si deseas explorar y desarrollar tus propios proyectos electrónicos, puedes <a href="https://simulide.com/p/">Descargar SimulIDE</a>. 
+            La instalación es sencilla y se puede seguir paso a paso. Para un tutorial visual, puedes consultar la <a href="https://www.youtube.com/watch?v=FsoOuuC3iSE">Guía de instalación de SimulIDE</a>, donde encontrarás instrucciones detalladas que te redirigirán a este mismo enlace.</p>
+    </div>
+    
+
+    <!-- Sección de proyectos -->
+    <div class="proyectos">
+        <section class="proyecto">
+            <h2>Proyecto 1: Control de LED</h2>
+            <h3>Esquema del circuito</h3>
+            <img src="PIC_P1.jpeg" alt="Esquema del circuito 1">
+            <h3>Código del circuito</h3>
+            <pre><code>// Código para el control de LED
+#include<16f877a.h>
+#fuses HS,NOPUT,NOLVP,NOPROTECT,BROWNOUT
+#use delay(clock=20M)
+#use fast_io(B) // configurar los pines de salida 1 = entrada   0 = salida
+
+void main(){
+
+    set_tris_b(0x00); // todo el puerto b como salida
+    output_b(0x00);   // toddo el puerto b en low
+    
+    while(true){
+    output_high(PIN_B0);
+    delay_ms(1000);
+    output_bit(PIN_B0,0);
+    delay_ms(1000);
+    }
+}
+            </code></pre>
+            <h3>Montaje del Circuito</h3>
+        <p>Instrucciones detalladas para el montaje del circuito:</p>
+        
+        <h4>Materiales Necesarios</h4>
+        <ul>
+            <li>PIC16F877A (microcontrolador)</li>
+            <li>LED (diodo emisor de luz)</li>
+            <li>Resistencia (220Ω a 1kΩ, para limitar la corriente del LED)</li>
+            <li>Protoboard (placa de pruebas)</li>
+            <li>Cables de conexión</li>
+            <li>Fuente de alimentación (como una batería de 5V o una fuente de laboratorio)</li>
+            <li>Condensador de desacoplo (por ejemplo, 100nF) opcional pero recomendado para estabilidad</li>
+            <li>Programador (para cargar el código al PIC, como un PICKIT 3 o similar)</li>
+        </ul>
+        
+        <h4>Esquema de Conexiones</h4>
+        <ol>
+            <li>Conecta el ánodo (la pata más larga) del LED al pin <code>RB0</code> del PIC16F877A.</li>
+            <li>Conecta el cátodo (la pata más corta) del LED a una de las patas de la resistencia.</li>
+            <li>Conecta la otra pata de la resistencia a tierra (GND).</li>
+            <li>Conecta el pin <code>VDD</code> del PIC16F877A al positivo de la fuente de alimentación (5V).</li>
+            <li>Conecta el pin <code>VSS</code> del PIC16F877A a tierra (GND).</li>
+            <li>Si estás utilizando un condensador de desacoplo, conéctalo entre <code>VDD</code> y <code>VSS</code> cerca del PIC para reducir el ruido y mejorar la estabilidad.</li>
+            <li>Conecta el programador al PIC16F877A siguiendo las instrucciones del fabricante para cargar el código.</li>
+        </ol>
+        
+        <h4>Conexiones en el Protoboard</h4>
+        <ol>
+            <li>Coloca el PIC16F877A en la protoboard.</li>
+            <li>Conecta las patas <code>VDD</code> y <code>VSS</code> del PIC16F877A a la fuente de alimentación y tierra, respectivamente.</li>
+            <li>Conecta el LED y la resistencia según el esquema de conexiones descrito.</li>
+            <li>Asegúrate de que los cables de alimentación estén correctamente conectados y verifica todas las conexiones antes de encender la fuente de alimentación.</li>
+        </ol>
+        
+        <h4>Verificación</h4>
+        <ol>
+            <li>Carga el código al PIC16F877A usando el programador.</li>
+            <li>Enciende la fuente de alimentación.</li>
+            <li>El LED debería parpadear a intervalos de 1 segundo, como está especificado en el código (<code>delay_ms(1000)</code>).</li>
+            <li>Si el LED no parpadea como se espera, revisa las conexiones y asegúrate de que el código ha sido cargado correctamente en el PIC.</li>
+        </ol>
+        </section>
+
+        <section class="proyecto">
+            <h2>Proyecto 2: Control LED - PULSADOR </h2>
+            <h3>Esquema del circuito</h3>
+            <img src="PIC_P2.jpeg" alt="Esquema del circuito 2">
+            <h3>Código del circuito</h3>
+            <pre><code>// Código para el sensor de temperatura
+#include<16f877a.h>
+    #fuses HS,NOPUT,NOLVP,NOPROTECT,BROWNOUT
+    #use delay(clock=20M)
+    #use fast_io(B) // configurar los pines de salida 1 = entrada   0 = salida
+    #use fast_io(D)
+    
+    void main(){
+    
+        set_tris_b(0x00); // todo el puerto b como salida menos el pin b1
+        output_b(0x00);   // toddo el puerto b en low
+        
+        while(true){
+        
+        if(input(PIN_D0) == 0){   // si en el pin b1 hay un pulso entra
+            output_high(PIN_B0);      //enciende el led
+            }
+        else{                         //si no entro al if apaga el led
+            output_low(PIN_B0);
+            }
+        
+        }
+    }
+    
+            </code></pre>
+            <h3>Montaje del Circuito</h3>
+            <p>Instrucciones detalladas para el montaje del circuito:</p>
+            
+            <h4>Materiales Necesarios</h4>
+            <ul>
+                <li>PIC16F877A (microcontrolador)</li>
+                <li>LED (diodo emisor de luz)</li>
+                <li>Resistencia (220Ω a 1kΩ, para limitar la corriente del LED)</li>
+                <li>Botón pulsador</li>
+                <li>Resistencia pull-up (10kΩ para el botón)</li>
+                <li>Protoboard (placa de pruebas)</li>
+                <li>Cables de conexión</li>
+                <li>Fuente de alimentación (como una batería de 5V o una fuente de laboratorio)</li>
+                <li>Condensador de desacoplo (por ejemplo, 100nF) opcional pero recomendado para estabilidad</li>
+                <li>Programador (para cargar el código al PIC, como un PICKIT 3 o similar)</li>
+            </ul>
+            
+            <h4>Esquema de Conexiones</h4>
+            <ol>
+                <li>Conecta el ánodo (la pata más larga) del LED al pin <code>RB0</code> del PIC16F877A.</li>
+                <li>Conecta el cátodo (la pata más corta) del LED a una de las patas de la resistencia.</li>
+                <li>Conecta la otra pata de la resistencia a tierra (GND).</li>
+                <li>Conecta el pin <code>RD0</code> al botón pulsador.</li>
+                <li>Conecta el otro extremo del botón a tierra (GND).</li>
+                <li>Conecta una resistencia pull-up de 10kΩ entre el pin <code>RD0</code> y el positivo de la fuente de alimentación (5V).</li>
+                <li>Conecta el pin <code>VDD</code> del PIC16F877A al positivo de la fuente de alimentación (5V).</li>
+                <li>Conecta el pin <code>VSS</code> del PIC16F877A a tierra (GND).</li>
+                <li>Si estás utilizando un condensador de desacoplo, conéctalo entre <code>VDD</code> y <code>VSS</code> cerca del PIC para reducir el ruido y mejorar la estabilidad.</li>
+                <li>Conecta el programador al PIC16F877A siguiendo las instrucciones del fabricante para cargar el código.</li>
+            </ol>
+            
+            <h4>Conexiones en el Protoboard</h4>
+            <ol>
+                <li>Coloca el PIC16F877A en la protoboard.</li>
+                <li>Conecta las patas <code>VDD</code> y <code>VSS</code> del PIC16F877A a la fuente de alimentación y tierra, respectivamente.</li>
+                <li>Conecta el LED y la resistencia según el esquema de conexiones descrito.</li>
+                <li>Conecta el botón pulsador al pin <code>RD0</code> con la resistencia pull-up de 10kΩ.</li>
+                <li>Asegúrate de que los cables de alimentación estén correctamente conectados y verifica todas las conexiones antes de encender la fuente de alimentación.</li>
+            </ol>
+            
+            <h4>Verificación</h4>
+            <ol>
+                <li>Carga el código al PIC16F877A usando el programador.</li>
+                <li>Enciende la fuente de alimentación.</li>
+                <li>Presiona el botón pulsador. El LED debería encenderse cuando el botón esté presionado y apagarse cuando no lo esté.</li>
+                <li>Si el LED no responde como se espera, revisa las conexiones y asegúrate de que el código ha sido cargado correctamente en el PIC.</li>
+            </ol>
+            
+        </section>
+
+        <section class="proyecto">
+            <h2>Proyecto 3: Contador </h2>
+            <h3>Esquema del circuito</h3>
+            <img src="PIC_P3.jpeg" alt="Esquema del circuito 3">
+            <h3>Código del circuito</h3>
+            <pre><code>// Código para el control del motor
+#include <16f877a.h>
+    #fuses HS,NOPUT,NOLVP,NOPROTECT,BROWNOUT
+    #use delay(clock=20M)
+    #use fast_io(B)
+    
+    int contador[10]={0b0111111,0b0000110,0b1011011,0b1001111,0b1100110,0b1101101,0b1111100,0b0000111,0b1111111,0b1100111};
+    int cont=0;
+    void main(){
+        set_tris_b(0x00);
+        output_low(0x00);
+        while(true){
+            for (cont=0; cont<10; cont++){
+            output_b(contador[cont]);
+            delay_ms(500);
+            }
+        }
+    }
+            </code></pre>
+            <h3>Montaje del Circuito</h3>
+<p>Instrucciones detalladas para el montaje del circuito:</p>
+
+<h4>Materiales Necesarios</h4>
+<ul>
+    <li>PIC16F877A (microcontrolador)</li>
+    <li>Display de 7 segmentos (ánodo común o cátodo común)</li>
+    <li>Resistencias (220Ω, una para cada pin de los segmentos del display)</li>
+    <li>Protoboard (placa de pruebas)</li>
+    <li>Cables de conexión</li>
+    <li>Fuente de alimentación (como una batería de 5V o una fuente de laboratorio)</li>
+    <li>Condensador de desacoplo (por ejemplo, 100nF) opcional pero recomendado para estabilidad</li>
+    <li>Programador (para cargar el código al PIC, como un PICKIT 3 o similar)</li>
+</ul>
+
+<h4>Esquema de Conexiones</h4>
+<ol>
+    <li>Conecta los pines de los segmentos del display de 7 segmentos (a, b, c, d, e, f, g) a los pines <code>RB0</code> a <code>RB6</code> del PIC16F877A.</li>
+    <li>Conecta una resistencia de 220Ω en serie entre cada uno de los pines del display y los pines del puerto B.</li>
+    <li>Si estás utilizando un display de ánodo común, conecta el ánodo común al pin positivo de la fuente de alimentación (5V). Si es de cátodo común, conecta el cátodo común a tierra (GND).</li>
+    <li>Conecta el pin <code>VDD</code> del PIC16F877A al positivo de la fuente de alimentación (5V).</li>
+    <li>Conecta el pin <code>VSS</code> del PIC16F877A a tierra (GND).</li>
+    <li>Si estás utilizando un condensador de desacoplo, conéctalo entre <code>VDD</code> y <code>VSS</code> cerca del PIC para reducir el ruido y mejorar la estabilidad.</li>
+    <li>Conecta el programador al PIC16F877A siguiendo las instrucciones del fabricante para cargar el código.</li>
+</ol>
+
+<h4>Conexiones en el Protoboard</h4>
+<ol>
+    <li>Coloca el PIC16F877A en la protoboard.</li>
+    <li>Conecta las patas <code>VDD</code> y <code>VSS</code> del PIC16F877A a la fuente de alimentación y tierra, respectivamente.</li>
+    <li>Conecta el display de 7 segmentos y las resistencias a los pines del puerto B según el esquema de conexiones descrito.</li>
+    <li>Asegúrate de que los cables de alimentación estén correctamente conectados y verifica todas las conexiones antes de encender la fuente de alimentación.</li>
+</ol>
+
+<h4>Verificación</h4>
+<ol>
+    <li>Carga el código al PIC16F877A usando el programador.</li>
+    <li>Enciende la fuente de alimentación.</li>
+    <li>El display de 7 segmentos debería contar del 0 al 9, con un intervalo de 500 ms entre cada número.</li>
+    <li>Si el display no muestra los números correctamente, revisa las conexiones y asegúrate de que el código ha sido cargado correctamente en el PIC.</li>
+</ol>
+
+        </section>
+
+        <section class="proyecto">
+            <h2>Proyecto 4: Comunicacion Pantalla LCD</h2>
+            <h3>Esquema del circuito</h3>
+            <img src="PIC_P4.jpeg" alt="Esquema del circuito 4">
+            <h3>Código del circuito</h3>
+            <pre><code>// Código para la comunicación UART
+#include <16f877a.h>
+#fuses HS,NOPUT,NOLVP,NOPROTECT,BROWNOUT
+#use delay(clock=20M)
+#use standard_io(D)
+
+#define LCD_DB4 PIN_D4    //los nombres de los pines definidos no se pueden cambiar 
+#define LCD_DB5 PIN_D5
+#define LCD_DB6 PIN_D6
+#define LCD_DB7 PIN_D7
+#define LCD_RS  PIN_D1
+#define LCD_RW   PIN_D2
+#define LCD_E   PIN_D0
+
+#include<lcd.c>
+
+void main(){
+   lcd_init();   // inicia la lcd
+   
+   while(true){
+   lcd_gotoxy(1,1);   //inicia posicion 1 1
+   lcd_putc("hola");
+   delay_ms(500);
+   
+   lcd_gotoxy(1,2);   //inicia posicion 1 2
+   lcd_putc("mundo");
+   delay_ms(1000);
+   
+   lcd_clear();
+   delay_ms(2);
+      
+   }
+}
+
+
+    
+            </code></pre>
+            <h3>Montaje del Circuito</h3>
+<p>Instrucciones detalladas para el montaje del circuito:</p>
+
+<h4>Materiales Necesarios</h4>
+<ul>
+    <li>PIC16F877A (microcontrolador)</li>
+    <li>Pantalla LCD 16x2 (con interfaz en modo de 4 bits)</li>
+    <li>Potenciómetro de 10kΩ (para ajustar el contraste del LCD)</li>
+    <li>Resistencia (220Ω, para limitar la corriente si el LCD tiene retroiluminación)</li>
+    <li>Protoboard (placa de pruebas)</li>
+    <li>Cables de conexión</li>
+    <li>Fuente de alimentación (como una batería de 5V o una fuente de laboratorio)</li>
+    <li>Condensador de desacoplo (por ejemplo, 100nF) opcional pero recomendado para estabilidad</li>
+    <li>Programador (para cargar el código al PIC, como un PICKIT 3 o similar)</li>
+</ul>
+
+<h4>Esquema de Conexiones</h4>
+<ol>
+    <li>Conecta los pines <code>D4</code>, <code>D5</code>, <code>D6</code> y <code>D7</code> del PIC16F877A a los pines de datos (DB4 a DB7) de la pantalla LCD.</li>
+    <li>Conecta el pin <code>RS</code> del PIC al pin <code>RS</code> de la pantalla LCD.</li>
+    <li>Conecta el pin <code>E</code> del PIC al pin <code>E</code> de la pantalla LCD.</li>
+    <li>Conecta un potenciómetro de 10kΩ entre VDD y GND, y el pin central del potenciómetro al pin de contraste (V0) de la pantalla LCD.</li>
+    <li>Conecta el pin <code>VDD</code> del PIC16F877A y del LCD al positivo de la fuente de alimentación (5V).</li>
+    <li>Conecta el pin <code>VSS</code> del PIC16F877A y del LCD a tierra (GND).</li>
+    <li>Si el LCD tiene retroiluminación, conecta una resistencia de 220Ω entre el pin de retroiluminación y VDD.</li>
+    <li>Si estás utilizando un condensador de desacoplo, conéctalo entre <code>VDD</code> y <code>VSS</code> cerca del PIC para reducir el ruido y mejorar la estabilidad.</li>
+    <li>Conecta el programador al PIC16F877A siguiendo las instrucciones del fabricante para cargar el código.</li>
+</ol>
+
+<h4>Conexiones en el Protoboard</h4>
+<ol>
+    <li>Coloca el PIC16F877A y la pantalla LCD en la protoboard.</li>
+    <li>Conecta las patas <code>VDD</code> y <code>VSS</code> del PIC16F877A y del LCD a la fuente de alimentación y tierra, respectivamente.</li>
+    <li>Conecta los pines de datos y control del LCD al puerto D del PIC, según el esquema de conexiones descrito.</li>
+    <li>Asegúrate de que los cables de alimentación estén correctamente conectados y verifica todas las conexiones antes de encender la fuente de alimentación.</li>
+</ol>
+
+<h4>Verificación</h4>
+<ol>
+    <li>Carga el código al PIC16F877A usando el programador.</li>
+    <li>Enciende la fuente de alimentación.</li>
+    <li>La pantalla LCD debería mostrar "hola" en la primera línea y "mundo" en la segunda línea, alternando cada segundo.</li>
+    <li>Si el texto no se muestra correctamente, revisa las conexiones y asegúrate de que el código ha sido cargado correctamente en el PIC.</li>
+</ol>
+
+        </section>
+
+        <section class="proyecto">
+            <h2>Proyecto 5: Conversor ADC</h2>
+            <h3>Esquema del circuito</h3>
+            <img src="PIC_P5.jpeg" alt="Esquema del circuito 5">
+            <h3>Código del circuito</h3>
+            <pre><code>// Código para controlar la pantalla LCD
+                #include <16f877a.h>
+                    #device ADC = 10   // determina la resolucion del ADC e este caso es de 10bits
+                    #fuses HS,NOPUT,NOLVP,NOPROTECT,BROWNOUT
+                    #use delay(clock=20M)
+                    #use standard_io(D)
+                    
+                    #define LCD_DB4 PIN_D4    //los nombres de los pines definidos no se pueden cambiar 
+                    #define LCD_DB5 PIN_D5
+                    #define LCD_DB6 PIN_D6
+                    #define LCD_DB7 PIN_D7
+                    #define LCD_RS  PIN_D1
+                    #define LCD_RW   PIN_D2
+                    #define LCD_E   PIN_D0
+                    
+                    #include<lcd.c>
+                    
+                    long valor_adc;
+                    float vol = 0;
+                    float rin=0;
+                    void main(){
+                    
+                       lcd_init();   // inicia la lcd
+                       setup_adc_ports(AN0);   // indica los pines analogicos 
+                       setup_adc(adc_clock_internal);   // utiliza el reloj interno para hacer la convercion
+                        
+                       while(true){
+                       
+                       set_adc_channel(0);  // canal del adc
+                       delay_us(2);
+                       valor_adc = read_adc();   // lee el valor de adc
+                       //lcd_clear();  //limpia lcd
+                       lcd_gotoxy(1,1);   //inicia posicion 1 1
+                       printf(lcd_putc,"ADC: %Lu",valor_adc);
+                       vol = (valor_adc*5.0)/1023.0;
+                       rin=2*vol;
+                       lcd_gotoxy(1,2);   //inicia posicion 1 1
+                       printf(lcd_putc,"Vol: %f",vol);
+                       delay_ms(1000);
+                       lcd_gotoxy(1,1);   //inicia posicion 1 1
+                       printf(lcd_putc,"Rin (Kohm): %f",rin);
+                       delay_ms(1000);
+                      
+                       }
+                    }
+                    
+                    
+            </code></pre>
+            <h3>Montaje del Circuito</h3>
+            <p>Instrucciones detalladas para el montaje del circuito:</p>
+            
+            <h4>Materiales Necesarios</h4>
+            <ul>
+                <li>PIC16F877A (microcontrolador)</li>
+                <li>Pantalla LCD 16x2 (con interfaz en modo de 4 bits)</li>
+                <li>Potenciómetro de 10kΩ (para ajustar el contraste del LCD)</li>
+                <li>Sensor analógico o potenciómetro para la entrada ADC (AN0)</li>
+                <li>Resistencia (220Ω, para limitar la corriente si el LCD tiene retroiluminación)</li>
+                <li>Protoboard (placa de pruebas)</li>
+                <li>Cables de conexión</li>
+                <li>Fuente de alimentación (como una batería de 5V o una fuente de laboratorio)</li>
+                <li>Condensador de desacoplo (por ejemplo, 100nF) opcional pero recomendado para estabilidad</li>
+                <li>Programador (para cargar el código al PIC, como un PICKIT 3 o similar)</li>
+            </ul>
+            
+            <h4>Esquema de Conexiones</h4>
+            <ol>
+                <li>Conecta los pines <code>D4</code>, <code>D5</code>, <code>D6</code> y <code>D7</code> del PIC16F877A a los pines de datos (DB4 a DB7) de la pantalla LCD.</li>
+                <li>Conecta el pin <code>RS</code> del PIC al pin <code>RS</code> de la pantalla LCD.</li>
+                <li>Conecta el pin <code>E</code> del PIC al pin <code>E</code> de la pantalla LCD.</li>
+                <li>Conecta un potenciómetro de 10kΩ entre VDD y GND, y el pin central del potenciómetro al pin de contraste (V0) de la pantalla LCD.</li>
+                <li>Conecta el pin <code>VDD</code> del PIC16F877A y del LCD al positivo de la fuente de alimentación (5V).</li>
+                <li>Conecta el pin <code>VSS</code> del PIC16F877A y del LCD a tierra (GND).</li>
+                <li>Conecta la entrada analógica (por ejemplo, un sensor o potenciómetro) al pin <code>AN0</code> del PIC (pin RA0).</li>
+                <li>Si el LCD tiene retroiluminación, conecta una resistencia de 220Ω entre el pin de retroiluminación y VDD.</li>
+                <li>Si estás utilizando un condensador de desacoplo, conéctalo entre <code>VDD</code> y <code>VSS</code> cerca del PIC para reducir el ruido y mejorar la estabilidad.</li>
+                <li>Conecta el programador al PIC16F877A siguiendo las instrucciones del fabricante para cargar el código.</li>
+            </ol>
+            
+            <h4>Conexiones en el Protoboard</h4>
+            <ol>
+                <li>Coloca el PIC16F877A y la pantalla LCD en la protoboard.</li>
+                <li>Conecta las patas <code>VDD</code> y <code>VSS</code> del PIC16F877A y del LCD a la fuente de alimentación y tierra, respectivamente.</li>
+                <li>Conecta los pines de datos y control del LCD al puerto D del PIC, según el esquema de conexiones descrito.</li>
+                <li>Conecta el sensor analógico o potenciómetro a la entrada ADC en el pin <code>AN0</code>.</li>
+                <li>Asegúrate de que los cables de alimentación estén correctamente conectados y verifica todas las conexiones antes de encender la fuente de alimentación.</li>
+            </ol>
+            
+            <h4>Verificación</h4>
+            <ol>
+                <li>Carga el código al PIC16F877A usando el programador.</li>
+                <li>Enciende la fuente de alimentación.</li>
+                <li>La pantalla LCD debería mostrar el valor de ADC en la primera línea y el voltaje correspondiente en la segunda línea.</li>
+                <li>Si el valor de ADC o el voltaje no se muestra correctamente, revisa las conexiones y asegúrate de que el código ha sido cargado correctamente en el PIC.</li>
+            </ol>
+            
+        </section>
+    </div>
+</body>
+</html>
+

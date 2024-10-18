@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<style>
+
+body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        margin: 20px;
+        color: #333;
+}
+
+.container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.options {
+    margin-top: 1.5em;
+    font-size: 1em;
+}
+
+.option {
+    background: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.option:hover {
+    background: #0056b3;
+}
+
+.hidden {
+    display: none;
+    font-size: 1.2em;
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 1.2em;
+}
+
+</style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raspberry Pi - Bibliografía</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="nav-items">
+            <li class="nav-item">
+                <a href="index.html" class="nav-link">INICIO</a>
+            </li>
+            <li class="nav-item">
+                <img src="usco.png" alt="USCO Logo" class="nav-img">
+            </li>
+        </ul>
+    </nav>
+    <div class="informacion">
+        <h1>Lección - Raspberry Pi</h1>
+        <p>Lección de preguntas de Raspberry Pi.</p>
+    </div>
+
+
+    <div class="container"; style="text-align:center;""></div>
+        <h1 style="font-size: 2em;">Juego de Preguntas</h1>
+        <div id="question-container">
+            <div id="question" style="font-size: 1.2em;">¿Cuál es la capital de Francia?</div>
+            <div class="options">
+                <button class="option" data-answer="A" style="font-size: 1.2em;">A. Berlín</button>
+                <button class="option" data-answer="B" style="font-size: 1.2em;">B. París</button>
+                <button class="option" data-answer="C" style="font-size: 1.2em;">C. Madrid</button>
+            </div>
+        </div>
+        <div id="result" class="hidden"></div>
+        <button id="next-btn" class="hidden" style="font-size: 1em;">Siguiente Pregunta</button>
+    </div>
+
+    <script src="scriptLeccionRaspberry.js"></script>
+</body>
+</html>

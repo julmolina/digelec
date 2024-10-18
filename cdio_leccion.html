@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz de Proyecto CDIO</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            color: #333;
+            background-color: #f7f7f7;
+        }
+        .navbar {
+            background-color: #800020; /* Color vinotinto */
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra para destacar la barra */
+        }
+        .nav-items {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            align-items: center;
+        }
+        .nav-item {
+            margin-right: 20px;
+        }
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+        }
+        .nav-img {
+            height: 50px;
+            margin-right: 20px; /* Ajusta el espacio del logo desde el borde derecho */
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 80px auto 20px; /* Ajusta el margen superior para evitar solapamiento con la barra fija */
+        }
+        h1, h2 {
+            color: #800020; /* Color vinotinto */
+        }
+        h1 {
+            text-align: center;
+            font-size: 30px;
+        }
+        h2 {
+            font-size: 30px;
+        }
+        p, label {
+            font-size: 20px;
+        }
+        button {
+            display: block;
+            background-color: #800020; /* Color vinotinto */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: auto;
+            font-size: 20px;
+        }
+        button:hover {
+            background-color: #9b1d30;
+        }
+        .result {
+            font-size: 20px;
+            color: #800020; /* Color vinotinto */
+            font-weight: bold;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="nav-items">
+            <li class="nav-item">
+                <a href="index.html" class="nav-link">INICIO</a>
+            </li>
+        </ul>
+        <img src="usco.png" alt="USCO Logo" class="nav-img">
+    </nav>
+
+    <h1>Quiz de Proyecto CDIO</h1>
+
+    <div class="container">
+        <form id="quizForm">
+            <h2>1. ¿Qué significa CDIO?</h2>
+            <label><input type="radio" name="q1" value="a"> A) Crear, Desarrollar, Implementar y Operar</label><br>
+            <label><input type="radio" name="q1" value="b"> B) Conceive, Design, Implement, Operate</label><br>
+            <label><input type="radio" name="q1" value="c"> C) Construir, Diseñar, Investigar, Operar</label><br>
+            <label><input type="radio" name="q1" value="d"> D) Conceptualizar, Desarrollar, Innovar y Operar</label>
+
+            <h2>2. ¿En qué fase del ciclo CDIO se definen los objetivos y requerimientos?</h2>
+            <label><input type="radio" name="q2" value="a"> A) Implementar</label><br>
+            <label><input type="radio" name="q2" value="b"> B) Operar</label><br>
+            <label><input type="radio" name="q2" value="c"> C) Concebir</label><br>
+            <label><input type="radio" name="q2" value="d"> D) Diseñar</label>
+
+            <h2>3. ¿Qué se hace en la fase de "Implementar" del ciclo CDIO?</h2>
+            <label><input type="radio" name="q3" value="a"> A) Se prueba el producto final</label><br>
+            <label><input type="radio" name="q3" value="b"> B) Se construye el sistema o producto</label><br>
+            <label><input type="radio" name="q3" value="c"> C) Se define el concepto del proyecto</label><br>
+            <label><input type="radio" name="q3" value="d"> D) Se realizan pruebas de calidad</label>
+
+            <button type="button" onclick="checkAnswers()">Completar</button>
+        </form>
+
+        <div id="result" class="result"></div>
+    </div>
+
+    <script>
+        function checkAnswers() {
+            const correctAnswers = {
+                q1: 'b',
+                q2: 'c',
+                q3: 'b'
+            };
+
+            let result = '';
+            let score = 0;
+            const form = document.getElementById('quizForm');
+            const formData = new FormData(form);
+
+            for (const [key, value] of formData.entries()) {
+                if (value === correctAnswers[key]) {
+                    score++;
+                } else {
+                    result += `Pregunta ${key[1]} está incorrecta. <br>`;
+                }
+            }
+
+            result += `<br>Puntaje: ${score}/3`;
+            document.getElementById('result').innerHTML = result;
+        }
+    </script>
+</body>
+</html>

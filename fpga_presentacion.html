@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyclone V - Presentación</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            color: #333;
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 60px;
+        }
+        li {
+            margin-bottom: 15px;
+        }
+        strong {
+            color: #2c3e50;
+        }
+        img {
+        display: block;
+        margin: 0 auto; /* Centra horizontalmente cualquier imagen */
+        }
+
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="nav-items">
+            <li class="nav-item">
+                <a href="index.html" class="nav-link">INICIO</a>
+            </li>
+            <li class="nav-item">
+                <img src="usco.png" alt="USCO Logo" class="nav-img">
+            </li>
+        </ul>
+    </nav>
+    <div class="informacion">
+        <h1>Presentación - Cyclone V</h1>
+        <p>Contenido específico de Cyclone V en electrónica digital II</p>
+    </div>
+    <div class="informacion1">
+        <h1>Cyclone V</h1>
+        <div class="content">
+            <p>La Cyclone V es una FPGA (Field Programmable Gate Array) basada en tecnología avanzada de 28 nm de Altera (ahora Intel). Las FPGAs permiten a los ingenieros configurar el hardware de forma programable para implementar lógica digital compleja. Se pueden programar para múltiples aplicaciones, como procesamiento de señales, comunicaciones, y control embebido.</p>
+            <img src="c5_1.png" alt="Cyclone V" class="info-image">
+        </div>
+        <h2>Modelos de Cyclone V:</h2>
+        <ul>
+            <li><strong>Cyclone V GX:</strong> Diseñado para aplicaciones que requieren alta velocidad y capacidad de procesamiento.</li>
+            <div class="image-container">
+                <img src="c5_gx.jpg" alt="Cyclone V GX" class="info-image12">
+            </div>
+            <li><strong>Cyclone V SE:</strong> Ideal para aplicaciones de bajo costo con un enfoque en bajo consumo energético.</li>
+            <div class="image-container">
+                <img src="c5_se.jpg" alt="Cyclone V SE" class="info-image12">
+            </div>
+            <li><strong>Cyclone V GT:</strong> Optimizado para aplicaciones de alta velocidad y eficiencia energética.</li>
+            <div class="image-container">
+                <img src="c5_gt.jpg" alt="Cyclone V GT" class="info-image12">
+            </div>
+        </ul>
+        <h2>Pines y Conectores de Cyclone V:</h2>
+        <p>Conocer los pines de Cyclone V es crucial ya que son los puntos de conexión entre la FPGA y otros componentes electrónicos. Estos pines permiten conectar periféricos, memorias, interfaces de comunicación, y otros dispositivos que expanden las capacidades de Cyclone V para proyectos avanzados. La Cyclone V soporta interfaces como LVDS, I2C, y SPI, facilitando la integración en sistemas complejos.</p>
+        <div class="image-container">
+            <img src="pine_c5.jpg" alt="Pines de Cyclone V" class="info-image12">
+        </div>
+        <ul>
+            <li><strong style="color: #b30808;">Pin de Alimentación:</strong> Cyclone V necesita una fuente de alimentación estable para sus operaciones.</li>
+            <li><strong style="color: #b30808;">Pines de Entrada/Salida:</strong> Compatibles con múltiples niveles de voltaje, configurables para diferentes protocolos.</li>
+            <li><strong style="color: #b30808;">Pines de Configuración:</strong> Permiten programar la FPGA con diferentes modos de configuración, como JTAG y AS.</li>
+            <li><strong style="color: #b30808;">Pines LVDS:</strong> Soportan comunicación de alta velocidad diferencial.</li>
+        </ul>
+    </div>
+    <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/unERWj2lOvA" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen></iframe>
+    </div>
+    <div class="informacion1">
+        <h1>Software para Cyclone V</h1>
+        <div class="content">
+            <p>Para programar Cyclone V, es necesario descargar Quartus Prime, el entorno de desarrollo integrado (IDE) proporcionado por Intel. Quartus Prime permite el diseño, simulación, y configuración de los proyectos para la FPGA. Al igual que en Arduino, los diseños en FPGAs requieren de herramientas que permitan escribir código en lenguajes como VHDL o Verilog, los cuales luego son sintetizados para generar el archivo de configuración que se cargará en la FPGA.</p>
+            <img src="IDE.png" alt="Quartus Prime IDE" class="info-image">
+        </div>
+    </div>
+</body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FPGA - Presentación</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="nav-items">
+            <li class="nav-item">
+                <a href="index.html" class="nav-link">INICIO</a>
+            </li>
+            <li class="nav-item">
+                <img src="usco.png" alt="USCO Logo" class="nav-img">
+            </li>
+        </ul>
+    </nav>
+    <div class="informacion">
+        <h1>Presentación - FPGA</h1>
+        <p>Contenido específico  de FPGA en electrónica digital II.</p>
+    </div>
+
+    <div class="informacion1">
+        <h1>FPGA</h1>
+        <div class="content">
+            <p>Un FPGA o Field Programable Gate Array es un conjunto de circuitos integrados, como puede ser cualquier chip, que está pensado para entregarse al cliente sin configurarlo para que luego cada uno lo personalice y programe según la tarea que necesite que haga esa pieza, una vez esta ya se ha fabricado. Es como si fabricaran un procesador y luego lo configuraran en función de lo que se necesite, en vez de enfocarlo a una tarea o un uso específico durante el proceso de producción.
+                Los FPGAs suelen contener diferentes bloques de procesamiento en su interior, y diferentes conectores para poder configurar los diferentes bloques de lógica, pudiendo hacer operaciones complejas o pudiendo funcionar como simples puertas lógicas. También dependiendo del módulo en su interior podremos encontrar memoria, especialmente en los módulos de lógica más complejos y avanzados. 
+                Estos pequeños chips empezaron como dispositivos de memoria de solo lectura (ROM) programables y procesadores de lógica, los cuales se podían programar en fábrica, pero tenían una gran limitación, y es que esos módulos de lógica estaban ya fijados a las puertas lógicas y no se podían luego personalizar físicamente, solo pudiendo personalizarse mediante la programación. Años más tarde llegaría la compañía Altera, la cual, fundada en 1983 crearía el primer FPGA que 
+                permitía su reconfiguración, borrando la configuración anterior del dispositivo y permitiendo su reutilización.</p>
+            <img src="fpga.png" alt="FPGA" class="info-image">
+        </div>
+    </div>
+    <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/unERWj2lOvA" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen></iframe>
+    </div>
+   
+</body>
+</html>
+
+</body>
+</html> -->

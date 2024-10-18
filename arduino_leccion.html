@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arduino - Notas</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        function verificarRespuestas() {
+            var correctas = 0;
+            var incorrectas = [];
+            var respuestas = [
+                { pregunta: "pregunta1", respuestaCorrecta: "correcta" },
+                { pregunta: "pregunta2", respuestaCorrecta: "correcta" },
+                { pregunta: "pregunta3", respuestaCorrecta: "correcta" },
+                { pregunta: "pregunta4", respuestaCorrecta: "correcta" }
+            ];
+
+            respuestas.forEach(function(item) {
+                var respuesta = document.querySelector('input[name="' + item.pregunta + '"]:checked');
+                if (respuesta) {
+                    if (respuesta.value === item.respuestaCorrecta) {
+                        correctas++;
+                    } else {
+                        incorrectas.push(item.pregunta);
+                    }
+                } else {
+                    incorrectas.push(item.pregunta);
+                }
+            });
+
+            var resultadoTexto = "Respondiste correctamente " + correctas + " de 4 preguntas.";
+            document.getElementById("resultado").textContent = resultadoTexto;
+
+            var incorrectasTexto = "";
+            if (incorrectas.length > 0) {
+                incorrectasTexto = "Las siguientes preguntas fueron incorrectas o no respondidas: " + incorrectas.join(", ") + ".";
+            }
+            document.getElementById("incorrectas").textContent = incorrectasTexto;
+        }
+
+        function reiniciarExamen() {
+            document.querySelector('form').reset(); // Reinicia el formulario
+            document.getElementById("resultado").textContent = ""; // Limpia el resultado
+            document.getElementById("incorrectas").textContent = ""; // Limpia las preguntas incorrectas
+        }
+    </script>
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="nav-items">
+            <li class="nav-item">
+                <a href="index.html" class="nav-link">INICIO</a>
+            </li>
+            <li class="nav-item">
+                <img src="usco.png" alt="USCO Logo" class="nav-img">
+            </li>
+        </ul>
+    </nav>
+    <div class="informacion">
+        <h1>Lección - Arduino</h1>
+        <p>Lección de cuatro preguntas sobre Arduino.</p>
+    </div>
+    <div class="informacion1">
+        <form>
+            <h3>1. ¿Cuál es el uso del pin 5V en Arduino?</h3>
+            <input type="radio" name="pregunta1" value="incorrecta"> Alimentar sensores que operan a 3.3V<br>
+            <input type="radio" name="pregunta1" value="correcta"> Proveer una salida regulada de 5V<br>
+            <input type="radio" name="pregunta1" value="incorrecta"> Restablecer la placa Arduino<br>
+    
+            <h3>2. ¿Qué modelo de Arduino es ideal para principiantes?</h3>
+            <input type="radio" name="pregunta2" value="incorrecta"> Arduino Mega<br>
+            <input type="radio" name="pregunta2" value="correcta"> Arduino Uno<br>
+            <input type="radio" name="pregunta2" value="incorrecta"> Arduino Leonardo<br>
+    
+            <h3>3. ¿Cuál es la función del conector JACK en Arduino?</h3>
+            <input type="radio" name="pregunta3" value="correcta"> Alimentar la placa entre 7 y 12V DC<br>
+            <input type="radio" name="pregunta3" value="incorrecta"> Establecer comunicación serie con el ordenador<br>
+            <input type="radio" name="pregunta3" value="incorrecta"> Proteger contra sobrecarga de corriente<br>
+    
+            <h3>4. ¿Qué pines de Arduino Uno se usan para la comunicación I2C?</h3>
+            <input type="radio" name="pregunta4" value="correcta"> A4 y A5<br>
+            <input type="radio" name="pregunta4" value="incorrecta"> 0 y 1<br>
+            <input type="radio" name="pregunta4" value="incorrecta"> 10 y 11<br><br>
+    
+            <button type="button" onclick="verificarRespuestas()">Enviar respuestas</button>
+            <button type="button" onclick="reiniciarExamen()">Volver a comenzar</button>
+        </form>
+
+        <p id="resultado"></p>
+        <p id="incorrectas"></p>
+    </div>
+</body>
+</html>

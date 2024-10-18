@@ -1,0 +1,314 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background-color: #a11b1b;
+    color: white;
+    padding: 10px;
+}
+
+.nav-items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-img {
+    height: 40px;
+}
+
+.nav-item {
+    position: relative;
+    margin-right: 20px;
+}
+
+.nav-link {
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+}
+
+.nav-link:hover {
+    background-color: #444;
+}
+
+.informacion {
+    padding: 20px;
+    text-align: center;
+    background-color: #f5f5f5;
+    color: #333;
+    
+}
+
+.bloques {
+    display: flex; /* Cambia a display flex */
+    flex-direction: row; /* Coloca los bloques uno al lado del otro */
+    justify-content: space-around; /* Espacio entre los bloques */
+    padding: 20px;
+}
+
+.bloque {
+    background-color: var(--secondary-bg-color);
+    border-radius: 8px;
+    margin: 10px; /* Margen entre bloques */
+    padding: 15px;
+    width: 300px; /* Ajusta el ancho según sea necesario */
+    text-align: center;
+}
+
+.bloque-link {
+    display: inline-block;
+    background-color: #007bff; /* Color de fondo del enlace */
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none; /* Sin subrayado */
+    margin-top: 10px; /* Espacio arriba del enlace */
+}
+
+.bloque-link:hover {
+    background-color: #0056b3; /* Color del enlace en hover */
+}
+
+.mega-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    width: 1300px; /* Ancho del menú desplegable */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    color: black;
+    padding: 20px;
+    z-index: 1;
+}
+
+.menu-column {
+    float: left;
+    width: calc(100% / 7); /* Divide el ancho entre el número de columnas */
+    box-sizing: border-box;
+    padding: 0 10px;
+}
+
+.menu-column h3 {
+    margin-top: 0;
+}
+
+.menu-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.menu-column ul li {
+    margin-bottom: 10px;
+}
+
+.menu-column ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.menu-column ul li a:hover {
+    color: #0066cc;
+}
+
+.menu-img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+    border-radius: 8px;
+}
+
+.nav-item:hover .mega-menu {
+    display: block;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.informacion {
+    padding: 20px;
+    text-align: center;
+    background-color: #f5f5f5; /* Color de fondo, opcional */
+    color: #333; /* Color del texto */
+}
+
+.informacion h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.informacion p {
+    font-size: 1.2em;
+    line-height: 1.6;
+}
+
+.informacion1 {
+    padding: 20px;
+    text-align: left;
+    color: #000000; /* Color del texto */
+}
+
+.informacion1 h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.informacion1 p {
+    font-size: 1.2em;
+    line-height: 1.6;
+}
+
+
+/* imagenes */
+.informacion1 {
+    padding: 20px;
+}
+
+.informacion1 h1 {
+    margin-bottom: 20px; /* Espacio entre el título y el contenido */
+}
+
+.content {
+    display: flex;
+    align-items: flex-start; /* Alinea el texto y la imagen al principio */
+    gap: 20px; /* Espacio entre el texto y la imagen */
+}
+
+.content p {
+    flex: 1; /* Permite que el párrafo ocupe el espacio disponible */
+    margin: 20px; /* Elimina márgenes adicionales del párrafo */
+}
+
+.info-image {
+    width: 350px; /* Ajusta el tamaño de la imagen según tus necesidades */
+    height: auto; /* Mantiene la proporción de la imagen */
+    border-radius: 8px; /* Bordes redondeados opcionales */
+}
+.video-container {
+    margin-top: 20px; /* Espacio arriba del video */
+    text-align: center; /* Centra el video horizontalmente */
+}
+
+.video-container iframe {
+    width: 100%; /* Ancho del video ajustado al contenedor */
+    max-width: 800px; /* Ancho máximo del video */
+    height: 450px; /* Altura del video */
+    border: none; /* Elimina el borde del iframe */
+}
+
+/* Estilos específicos para el cuestionario */
+.question-container {
+    background-color: #fff; /* Fondo blanco para destacar la pregunta */
+    border-radius: 8px; /* Bordes redondeados para el contenedor de la pregunta */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil para el contenedor */
+    margin: 20px auto;
+    max-width: 600px;
+    padding: 15px;
+    text-align: left;
+}
+
+.question {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.answer {
+    margin: 10px 0;
+    position: relative;
+    padding: 5px;
+}
+
+.answer input {
+    margin-right: 10px;
+}
+
+.correct {
+    border: 2px solid green;
+    border-radius: 5px;
+    background-color: #e8f5e9; /* Fondo ligeramente verde */
+}
+
+.incorrect {
+    border: 2px solid red;
+    border-radius: 5px;
+    background-color: #ffebee; /* Fondo ligeramente rojo */
+}
+
+.correct-answer {
+    text-decoration: underline; /* Subrayar la respuesta correcta */
+    color: darkgreen; /* Color verde oscuro para la respuesta correcta */
+}
+
+button {
+    background-color: #007bff; /* Color de fondo del botón */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #0056b3; /* Color del botón en hover */
+}
+
+/* Añadir estos estilos a tu archivo CSS */
+.explanation {
+    margin-top: 15px; /* Espacio adicional arriba de la justificación */
+    padding: 10px; /* Relleno interno alrededor del texto de justificación */
+    background-color: #f9f9f9; /* Color de fondo opcional para distinguir la justificación */
+    border: 1px solid #ddd; /* Borde opcional para hacer la justificación más visible */
+    border-radius: 5px; /* Bordes redondeados opcionales */
+    text-align: left; /* Alineación del texto de la justificación */
+    color: #555; /* Color del texto de la justificación */
+}
+
+/* Estilos básicos para el contenedor de los laboratorios */
+.laboratorios {
+    padding: 20px;
+}
+
+.laboratorio {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f9f9f9;
+}
+
+.laboratorio h2 {
+    margin-top: 0;
+}
+
+.laboratorio p {
+    margin: 0;
+}
+
+h2 {
+    font-size: 1.8em; /* Tamaño de fuente para los subtítulos */
+    margin: 20px 0; /* Márgenes arriba y abajo */
+    color: #333; /* Color del texto */
+}
+
+.informacion1 h2 {
+    margin-top: 30px; /* Espacio adicional arriba del h2 */
+}
+
+p {
+    text-align: justify; /* Justifica el texto en los párrafos */
+    margin: 0; /* Elimina márgenes adicionales */
+}
+

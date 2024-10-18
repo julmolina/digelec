@@ -1,0 +1,170 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background-color: #a11b1b;
+    color: white;
+    padding: 10px;
+}
+
+.nav-items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between; /* Ajusta la separación de los elementos */
+    align-items: center; /* Centra verticalmente los elementos dentro de la barra */
+}
+
+.nav-img {
+    height: 40px; /* Ajusta la altura de la imagen según tus necesidades */
+}
+
+.nav-item {
+    position: relative;
+    margin-right: 20px; /* Espacio entre los elementos del menú */
+}
+
+.nav-link {
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+}
+
+.nav-link:hover {
+    background-color: #444;
+}
+
+.mega-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    width: 1300px; /* Ancho del menú desplegable */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    color: black;
+    padding: 20px;
+    z-index: 1;
+}
+
+.menu-column {
+    float: left;
+    width: calc(100% / 7); /* Divide el ancho entre el número de columnas */
+    box-sizing: border-box;
+    padding: 0 10px;
+}
+
+.menu-column h3 {
+    margin-top: 0;
+}
+
+.menu-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.menu-column ul li {
+    margin-bottom: 10px;
+}
+
+.menu-column ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.menu-column ul li a:hover {
+    color: #0066cc;
+}
+
+.menu-img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+    border-radius: 8px;
+}
+
+.nav-item:hover .mega-menu {
+    display: block;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.informacion {
+    padding: 20px;
+    text-align: center;
+    background-color: #f5f5f5; /* Color de fondo, opcional */
+    color: #333; /* Color del texto */
+}
+
+.informacion h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.informacion p {
+    font-size: 1.2em;
+    line-height: 1.6;
+}
+
+.informacion1 {
+    padding: 20px;
+    text-align: left;
+    color: #000000; /* Color del texto */
+}
+
+.informacion1 h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.informacion1 p {
+    font-size: 1.2em;
+    line-height: 1.6;
+}
+
+
+/* imagenes */
+.informacion1 {
+    padding: 20px;
+}
+
+.informacion1 h1 {
+    margin-bottom: 20px; /* Espacio entre el título y el contenido */
+}
+
+.content {
+    display: flex;
+    align-items: flex-start; /* Alinea el texto y la imagen al principio */
+    gap: 20px; /* Espacio entre el texto y la imagen */
+}
+
+.content p {
+    flex: 1; /* Permite que el párrafo ocupe el espacio disponible */
+    margin: 0; /* Elimina márgenes adicionales del párrafo */
+}
+
+.info-image {
+    width: 350px; /* Ajusta el tamaño de la imagen según tus necesidades */
+    height: auto; /* Mantiene la proporción de la imagen */
+    border-radius: 8px; /* Bordes redondeados opcionales */
+}
+.video-container {
+    margin-top: 20px; /* Espacio arriba del video */
+    text-align: center; /* Centra el video horizontalmente */
+}
+
+.video-container iframe {
+    width: 100%; /* Ancho del video ajustado al contenedor */
+    max-width: 800px; /* Ancho máximo del video */
+    height: 450px; /* Altura del video */
+    border: none; /* Elimina el borde del iframe */
+}

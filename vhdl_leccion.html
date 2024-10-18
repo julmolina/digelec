@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VHDL - Bibliografía</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    .container{
+    max-width: 700px;
+    margin:auto;
+    padding: 20px;
+}
+.sect{
+    border: 2px solid #5624d0;
+    border-radius: 7px;
+    padding: 10px;
+    margin:10px 0;
+}
+label{
+    display: block;
+    padding: 7px;
+    border-radius: 7px;
+    cursor: pointer;
+    border: 1px dased #ccc;
+    margin-bottom: 3px;
+}
+label:hover{
+    background: #cec0fc;
+}
+button{
+    width: 80%;
+    display: block;
+    margin: auto;
+    padding: 10px;
+    background-color: #76d7c8;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+}
+button:hover{
+    background: #000;
+    color: #fff;
+}
+h3{
+    text-align: center;
+}
+#resultado{
+    font-size: 30px;
+    color:darkred;
+}
+</style>
+<body>
+    <nav class="navbar">
+        <ul class="nav-items">
+            <li class="nav-item">
+                <a href="index.html" class="nav-link">INICIO</a>
+            </li>
+            <li class="nav-item">
+                <img src="usco.png" alt="USCO Logo" class="nav-img">
+            </li>
+        </ul>
+    </nav>
+    <div class="informacion">
+        <h1>Lección - VHDL</h1>
+        <p>Lección de cuatro preguntas de VHDL.</p>
+        <div class="container">
+            <section id="p0" class="sect">
+                <h2>1 - ¿Qué es una entidad en VHDL?</h2>
+                <label>
+                    <input type="radio" value="1" name="p0" onclick="respuesta(0,this)"> Una descripción de los valores lógicos de un circuito.
+                </label>
+                <label>
+                    <input type="radio" value="2" name="p0" onclick="respuesta(0,this)"> La definición del símbolo del circuito, es decir, sus entradas y salidas.
+                </label>
+                <label>
+                    <input type="radio" value="3" name="p0" onclick="respuesta(0,this)"> Un tipo de librería utilizada en el diseño.
+                </label>
+                <label>
+                    <input type="radio" value="4" name="p0" onclick="respuesta(0,this)"> Una colección de señales de entrada y salida.
+                </label>
+            </section>
+            <section id="p1" class="sect">
+                <h2>2 - ¿Cuál es el propósito del modo out en una señal de VHDL?</h2>
+                <label>
+                    <input type="radio" value="1" name="p1" onclick="respuesta(1,this)"> Definir el tipo de datos que la señal puede contener.
+                </label>
+                <label>
+                    <input type="radio" value="2" name="p1" onclick="respuesta(1,this)"> Permitir la lectura de datos desde la señal.
+                </label>
+                <label>
+                    <input type="radio" value="3" name="p1" onclick="respuesta(1,this)"> Enviar datos fuera del módulo, aunque no pueden ser leídos dentro del mismo.
+                </label>
+                <label>
+                    <input type="radio" value="4" name="p1" onclick="respuesta(1,this)"> Configurar la señal como una entrada.
+                </label>
+            </section>
+            <section id="p2" class="sect">
+                <h2>3 - ¿Cuál de los siguientes es un tipo de dato estándar en VHDL?</h2>
+                <label>
+                    <input type="radio" value="1" name="p2" onclick="respuesta(2,this)"> STRING.
+                </label>
+                <label>
+                    <input type="radio" value="2" name="p2" onclick="respuesta(2,this)"> STD_LOGIC_VECTOR.
+                </label>
+                <label>
+                    <input type="radio" value="3" name="p2" onclick="respuesta(2,this)"> INTEGER.
+                </label>
+                <label>
+                    <input type="radio" value="4" name="p2" onclick="respuesta(2,this)"> FLOAT.
+                </label>
+            </section>
+            <section id="p3" class="sect">
+                    <h2>4 - ¿Qué valor lógico de Standard Logic representa la alta impedancia?</h2>
+                    <label>
+                        <input type="radio" value="1" name="p3" onclick="respuesta(3,this)"> ‘0’
+                    </label>
+                    <label>
+                        <input type="radio" value="2" name="p3" onclick="respuesta(3,this)"> ‘1’
+                    </label>
+                    <label>
+                        <input type="radio" value="3" name="p3" onclick="respuesta(3,this)"> ‘Z’
+                    </label>
+                    <label>
+                        <input type="radio" value="4" name="p3" onclick="respuesta(3,this)"> ‘X’
+                    </label>
+            </section>
+            <section id="p4" class="sect">
+                    <h2>5 - ¿Cuál es la función principal de las librerías en VHDL?</h2>
+                    <label>
+                        <input type="radio" value="1" name="p4" onclick="respuesta(4,this)">  Definir los modos de operación de las señales.
+                    </label>
+                    <label>
+                        <input type="radio" value="2" name="p4" onclick="respuesta(4,this)"> Crear entidades y arquitecturas.
+                    </label>
+                    <label>
+                        <input type="radio" value="3" name="p4" onclick="respuesta(4,this)"> Almacenar unidades de diseño compiladas previamente para agilizar su reutilización.
+                    </label>
+                    <label>
+                        <input type="radio" value="4" name="p4" onclick="respuesta(4,this)"> Describir el comportamiento lógico del circuito.
+                    </label>
+            </section>
+            <button onclick="corregir()">Corregir</button>
+            <h3>Cantidad acertadas: <span id="resultado"></span></h3>
+        </div>
+    </div>
+</body>
+<script>
+    let correctas = [2, 3, 2, 3, 3];
+let opcion_elegida = [];
+let cantidad_correctas = 0;
+
+function respuesta(num_pregunta, seleccionada) {
+    opcion_elegida[num_pregunta] = seleccionada.value;
+    let id = "p" + num_pregunta;
+    let labels = document.getElementById(id).childNodes;
+    // Restaurar colores de fondo
+    labels.forEach(label => {
+        if (label.nodeType === Node.ELEMENT_NODE) {
+            label.style.backgroundColor = "white";
+        }
+    });
+    // Establecer color de fondo para la opción seleccionada
+    seleccionada.parentNode.style.backgroundColor = "#cec0fc";
+}
+
+function corregir() {
+    cantidad_correctas = 0;
+    for (let i = 0; i < correctas.length; i++) {
+        if (correctas[i] == opcion_elegida[i]) {
+            cantidad_correctas++;
+        }
+    }
+
+    let resultadoElement = document.getElementById("resultado");
+    if (cantidad_correctas === 0) {
+        resultadoElement.innerHTML = '0 Aprenda a Leer';
+    } else {
+        resultadoElement.innerHTML = cantidad_correctas;
+    }
+}
+</script>
+</html>

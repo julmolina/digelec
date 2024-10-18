@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        margin: 20px;
+        color: #333;
+    }
+    ul {
+        list-style-type: disc;
+        margin-left: 60px;
+    }
+    li {
+        margin-bottom: 15px; /* Espacio entre cada subpunto */
+    }
+    strong {
+        color: #2c3e50;
+    }
+    .image-container {
+    text-align: center; /* Centra la imagen horizontalmente */
+}
+</style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raspberry Pi - Laboratorios</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="nav-items">
+            <li class="nav-item">
+                <a href="index.html" class="nav-link">INICIO</a>
+            </li>
+            <li class="nav-item">
+                <img src="usco.png" alt="USCO Logo" class="nav-img">
+            </li>
+        </ul>
+    </nav>
+    <div class="informacion">
+        <h1>Laboratorios - Raspberry Pi</h1>
+        <p>Contenido específico de laboratorios de Raspberry Pi.</p>
+    </div>
+    <div class="informacion1"></div>
+        <h1>Prelaboratorio 1 - Instalacion S.O Raspbian</h1>
+        <div class="content" style="text-align: justify;">
+            <p style="font-size: 20px;">Esta leccion tiene como objetivo introducir y briandarles las herramientas para la instalacion del sistema operativo Raspbian, para los equipos raspberry PI 3B que se encuentran en la universidad. Antes de iniciar es necesario tener una memoria micro SD, como minimo de 32GB y preferiblemente de clase 10, esto para evitar conflictos posteriores con el hardware de sistema embebido. A continuacion se muestra el paso a paso para la descarga, instalacion y puesta en marcha del sistem operativo Raspbian</p>
+            <img src="raspbian-logo.png" alt="Raspberry Pi" class="info-image"">  
+    </div>
+    <ol style="text-align: justify; font-size: 20px;">
+    <li> Ingresar al siguiente link <a href="https://www.raspberrypi.com/software/operating-systems/">Raspberry Pi OS</a> y descargar la version de sistema operativo correspondiente a la version de raspberry. En este caso, Raspberry PI OS with desktop</li>
+    <li> Luego, ingresa al siguiente link  <a href="https://bit.ly/3HaTeSA">Balena </a>, y descarga el programa</li>
+    <li>Extre el archivo ZIP que contiene el sistema operativo Raspbian</li>
+    <li>Ejecuta como administrador el programa Balena decargado, agrega el archivo iso descomprimido, selecciona la Micro SD conectada al PC e instala el sistema operativo en la Micro SD</li>
+    <li>Inserta la micro SD en el socket correspondiente de la raspberry y conecta los perifericos (Mause, teclado y monitor)</li>
+    <li>Conecta la raspberry a la fuente de energia, espera un momento y configura las opciones basicas de instalacion</li>
+    </ol>
+    <div class="informacion1"></div>
+        <div class="image-container""><img src="raspberrypi_configuracion.jpg" alt="Raspberry Pi" ></div>   
+    </div>
+
+
+    <div class="informacion1">
+        <h1>Prelaboratorio 2 - Lenguaje de programacion python</h1>
+        <h2>Ejercicio 1</h2>
+        <div class="content" style="text-align: justify;">
+            <p style="font-size: 20px;">Este código en Python inicializa una variable edad en 0 y luego entra en un bucle while que se ejecuta mientras la edad sea menor que 18. En cada iteración, se incrementa el valor de edad en 1. A continuación, utiliza una instrucción if para verificar si la edad es un número par, lo que se logra calculando el residuo de edad dividido entre 2. Si la edad es par, la instrucción continue hace que se salte a la siguiente iteración del bucle, evitando que se ejecute el código que sigue. Si la edad es impar, entonces se imprime un mensaje en la consola que muestra la edad actual utilizando la función print, concatenando el número con una cadena de texto. En resumen, el código imprime un mensaje solo para las edades impares entre 1 y 17.</p>
+            <img src="ejercicioPython1.jpg" alt="Raspberry Pi" class="info-image"">  
+        </div>
+        <h2>Ejercicio 2</h2>
+        <div class="content" style="text-align: justify;">
+            <p style="font-size: 20px;">Este código en Python comienza pidiendo al usuario que ingrese un número entero mediante la función raw_input, que convierte la entrada en un entero usando int(). Luego, evalúa si el número ingresado es negativo con la condición if x < 0:. Si es negativo, imprime "Numero Negativo". Si el número es mayor que cero, la instrucción elif x > 0: evalúa si es positivo y, de ser así, imprime "Numero positivo". Finalmente, la última condición if x == 0: comprueba si el número es exactamente 0, y si lo es, imprime "Cero". Este código clasifica un número entero como negativo, positivo o cero, imprimiendo el mensaje correspondiente.</p>
+            <img src="ejercicioPython2.jpg" alt="Raspberry Pi" class="info-image"">  
+        </div>
+        <h2>Ejercicio 3</h2>
+        <div class="content" style="text-align: justify;">
+            <p style="font-size: 20px;">La línea i=1 inicializa una variable i que se incrementará en cada iteración, aunque no parece que tenga un propósito claro en el resultado del programa. Luego, el while True: crea un bucle infinito, lo que significa que el código dentro del bucle continuará ejecutándose hasta que se encuentre una instrucción break. La siguiente línea imprime el mensaje "programa que suma dos numeros" para indicar la función del programa. Las líneas a = input("Ingrese el primer numero :") y b = input("Ingrese el segundo numero :") solicitan al usuario que ingrese dos números. Los valores de a y b serán cadenas, y debería usarse int() o float() para convertirlos en números, pero esto no está presente en el código, lo que provocaría un error al intentar sumar cadenas en la línea suma = a + b. Luego, se imprime el resultado de la suma con la instrucción print "El resultado de la suma es:", suma, aunque esta forma de print es válida solo en Python 2 (en Python 3 se debe usar paréntesis). Después, se solicita una entrada al usuario con entrada = raw_input("presione s para salir, sino dar enter > "), donde se le pide al usuario presionar la letra 's' para salir o presionar Enter para continuar. Si el usuario ingresa "s", la instrucción if entrada == "s": break termina el bucle, saliendo del programa. De lo contrario, si el usuario no ingresa "s", la variable i se incrementa en 1 con i = i + 1 y se imprime "esta sera la suma", i, aunque este mensaje parece más de depuración que de utilidad real para el programa.</p>
+            <img src="ejercicioPython3.jpg" alt="Raspberry Pi" class="info-image"">  
+        </div>
+        <h2>Ejercicio 4</h2>
+        <div class="content" style="text-align: justify;">
+            <p style="font-size: 20px;">Este código usa la librería numpy para operaciones con matrices. Primero, se importa numpy como np. Luego, se crea una matriz a de tamaño 3x2 llena de unos con np.ones((3,2)). La variable Matrix contiene una lista de listas que simulan una matriz, con dos filas: [1, 3, 5, 7] y [2, 4, 6, 8]. La instrucción print Matrix[0][2] imprime el valor de la primera fila y tercera columna de la matriz (que es 5). Después, print Matrix muestra toda la matriz. Finalmente, print(a*5) imprime la matriz de unos multiplicada por 5, lo que da una nueva matriz 3x2 con todos sus elementos siendo 5.</p>
+            <img src="ejercicioPython4.jpg" alt="Raspberry Pi" class="info-image"">  
+        </div>
+    </div>  
+
+        <div class="informacion1">
+            <h1>Laboratorio 1 - Encer y apagar LED con interfaz grafica</h1>
+        <h2>Probar y corregir el siguiente codigo</h2>
+        <div class="image-container""><img src="laboratorio1Raspberry.jpg" alt="Raspberry Pi" ></div>   
+        <p style="text-align: justify;">Este código usa la biblioteca Tkinter para crear una interfaz gráfica y RPi.GPIO para controlar los pines GPIO de una Raspberry Pi. Primero, se importan las bibliotecas necesarias, Tkinter para la interfaz gráfica y RPi.GPIO para interactuar con los pines GPIO. Luego, se configura el pin GPIO 18 en modo salida mediante GPIO.setup(18, GPIO.OUT, pull_up_down=GPIO.PUD_UP, initial=1), donde el modo BCM establece que la numeración de los pines sigue el esquema del chip Broadcom, GPIO.OUT define que el pin será usado como salida y PUD_UP activa una resistencia pull-up interna para garantizar que el pin no quede en un estado indefinido. La ventana principal de la interfaz se crea usando root = Tk(), y se le asigna un título ("GPIO Test") y un color de fondo (#FFFFF0).
+
+            El código define dos funciones, onBtnPress() y offBtnPress(), que son llamadas al presionar los botones "On" y "Off", respectivamente. En la función onBtnPress(), si la variable debug es True, se imprime un mensaje de depuración indicando que el botón "On" fue presionado, y se cambia el estado del pin GPIO 18 a alto (GPIO.output(18, 1)), encendiendo así el dispositivo conectado. Similarmente, offBtnPress() apaga el dispositivo poniendo el pin en bajo (GPIO.output(18, 0)).
+            
+            Para organizar los botones en la ventana, se crea un Frame llamado primaryFrame dentro de la ventana principal root. El frame se posiciona usando el método grid(), que organiza los elementos en una cuadrícula. En este caso, se coloca en la fila 0 y columna 0, con un espacio adicional (padx=10, pady=10) para separar los elementos del borde. Luego, se crean dos botones, uno para encender el dispositivo (onBtn) y otro para apagarlo (offBtn), usando el widget Button(). Cada botón está asociado a una función (usando command=onBtnPress y command=offBtnPress) y se posicionan en el frame usando el método grid(), uno debajo del otro. Finalmente, se ejecuta root.mainloop(), que es el bucle principal de Tkinter que mantiene la ventana abierta y activa, esperando la interacción del usuario. Este código proporciona una interfaz gráfica simple para controlar un dispositivo conectado a un pin GPIO de una Raspberry Pi, usando botones para encenderlo y apagarlo, mientras que se gestionan los estados de los pines mediante la biblioteca RPi.GPIO.</p>
+    
+        </div>
+
+        <div class="informacion1">
+            <h1>Laboratorio 2 - Controlar la posicion de un servomotor</h1>
+        <h2>Probar y corregir el siguiente codigo</h2>
+        <div class="image-container""><img src="laboratorio2Raspberry.jpg" alt="Raspberry Pi" ></div>   
+        <p style="text-align: justify;">Este código utiliza Tkinter para crear una interfaz gráfica que permite controlar un servo motor conectado al pin GPIO 18 de una Raspberry Pi mediante un control deslizante (slider). Primero, se configura el pin GPIO 18 como salida y se crea un objeto PWM que inicia con un ciclo de trabajo del 5% (duty cycle), lo que posiciona el servo en un ángulo inicial. A través de la clase App, se crea una ventana con un control deslizante que permite al usuario seleccionar un ángulo entre 0 y 720 grados. Cada vez que el usuario mueve el control deslizante, el valor del ángulo se actualiza y convierte en un ciclo de trabajo para controlar el movimiento del servo.
+
+            El método update convierte el ángulo seleccionado en el control deslizante en un ciclo de trabajo adecuado para el servo, usando la fórmula duty = float(angle)/10.0 + 2.5, que asegura que el rango del ciclo de trabajo sea correcto para controlar el servo. Luego, se ajusta el PWM con pwm.ChangeDutyCycle(duty) para mover el servo al ángulo deseado. Finalmente, se define la ventana principal con Tkinter, se asigna un título y tamaño específico, y el bucle principal de Tkinter (root.mainloop()) mantiene la ventana abierta y funcional para que el usuario pueda interactuar con ella y controlar el servo en tiempo real.</p>
+    
+        </div>
+        
+</body>
+</html>

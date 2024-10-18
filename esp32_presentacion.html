@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        margin: 20px;
+        color: #333;
+    }
+    ul {
+        list-style-type: disc;
+        margin-left: 60px;
+    }
+    li {
+        margin-bottom: 15px; /* Espacio entre cada subpunto */
+    }
+    strong {
+        color: #2c3e50;
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESP32 - Presentación</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="nav-items">
+            <li class="nav-item">
+                <a href="index.html" class="nav-link">INICIO</a>
+            </li>
+            <li class="nav-item">
+                <img src="usco.png" alt="USCO Logo" class="nav-img">
+            </li>
+        </ul>
+    </nav>
+    <div class="informacion">
+        <h1>Presentación - ESP32</h1>
+        <p>Contenido específico  de ESP32 en electrónica digital II</p>
+        
+    </div>
+    <div class="informacion1">
+        <h1>ESP32</h1>
+        <div class="content">
+            <p>El ESP32 es un microcontrolador de bajo costo y alta capacidad fabricado por Espressif Systems. Es ampliamente utilizado en proyectos de Internet de las Cosas (IoT) debido a su capacidad de conectividad Wi-Fi y Bluetooth, así como a su versatilidad y facilidad de uso.</p>
+            
+            <img src="ESP32.JPG" alt="ESP32" class="info-image">
+            
+        </div>
+        <h2>Características principales del ESP32:</h2>
+        <ul>
+            <li><strong>Conectividad:</strong> Soporta Wi-Fi y Bluetooth (BLE y Classic), lo que lo hace ideal para aplicaciones de IoT.</li>
+            <li><strong>Procesador:</strong> Tiene un procesador dual-core Xtensa LX6, que puede funcionar a una velocidad de hasta 240 MHz.</li>
+            <li><strong>Memoria:</strong> Dispone de 520 KB de SRAM y varias opciones de almacenamiento flash.</li>
+            <li><strong>GPIOs:</strong> Incluye numerosos pines de entrada/salida general (GPIOs) que se pueden utilizar para conectar sensores, actuadores, y otros periféricos.</li>
+            <li><strong>Periféricos:</strong> Soporta una variedad de interfaces como UART, SPI, I2C, PWM, ADC, DAC, entre otros.</li>
+            <li><strong>Consumo de energía:</strong> Tiene modos de bajo consumo energético, lo que permite su uso en aplicaciones alimentadas por baterías.</li>
+        </ul>
+        <p>El ESP32 es popular en la comunidad de desarrolladores y makers por su capacidad de manejar tareas complejas y su compatibilidad con una gran cantidad de bibliotecas y plataformas de desarrollo como Arduino IDE, MicroPython, y PlatformIO.</p>
+</body>
+    </div>
+    <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/pdgFqPbw64g" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen></iframe>
+    </div>
+
+    <!-- Marlon, aplicaciones de la esp32-->
+
+    <div class="ListaEsp32">
+        <h2 style="text-align: center;">Aplicaciones del ESP32</h2>
+        <p style="margin: 50px;">El ESP32 es utilizado en una amplia variedad de aplicaciones gracias a su versatilidad, conectividad y bajo costo. Algunas de las aplicaciones más comunes incluyen:</p>
+        <ul>
+            <li><strong>Automatización del hogar:</strong> Control de luces, termostatos, cámaras de seguridad y otros dispositivos conectados.</li>
+            <li><strong>Dispositivos portátiles:</strong> Implementación en relojes inteligentes, rastreadores de actividad física, y otros wearables.</li>
+            <li><strong>Robótica:</strong> Control de motores, sensores y otros componentes en proyectos robóticos.</li>
+            <li><strong>Sistemas de monitoreo ambiental:</strong> Recolección de datos de sensores para monitorear la calidad del aire, temperatura, humedad, etc.</li>
+            <li><strong>IoT Industrial:</strong> Supervisión y control de equipos en fábricas, monitoreo de procesos, etc.</li>
+            <li><strong>Proyectos de automatización:</strong> Sistemas de riego inteligentes, cerraduras inteligentes, entre otros.</li>
+        </ul>
+    </div>
+
+    <div class="aplicaciones-esp32">
+        <h2 style="margin: 30px;">Ejemplos:</h2>
+        <p style="padding: 0px 30px 0px 30px;">El ESP32 es una tarjeta muy versátil que permite realizar muchos proyectos de manera sencilla. Aquí te presentamos algunas aplicaciones básicas que puedes lograr con ella:</p>
+        
+        <div class="aplicacion">
+            <h3 style="padding: 0px 30px 0px 30px;">1. Control de Luces por Wi-Fi</h3>
+            <p style="padding: 0px 30px 0px 30px;" >El ESP32 te permite controlar luces a distancia usando una conexión Wi-Fi. Con un poco de código y una aplicación en tu teléfono o desde una página web, puedes encender y apagar luces desde cualquier lugar, a continuación te presentamos un video el cual te ayudará a desarrollar tu primero aplicación con Esp32</p>
+        </div>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/WUybG1uphoU" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen></iframe>
+        </div>
+    
+        <div class="aplicacion">
+            <h3 style="padding: 0px 30px 0px 30px;">2. Sensor de Temperatura y Humedad</h3>
+            <p style="padding: 0px 30px 0px 30px;">Con la ayuda de un sensor DHT11 o DHT22, el ESP32 puede leer la temperatura y humedad del ambiente. Esto puede ser útil para controlar sistemas de aire acondicionado o calefacción de manera automática, según las condiciones ambientales.</p>
+        </div>
+
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/rdUepNx1Rs4" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen></iframe>
+        </div>
+    
+        <div class="aplicacion">
+            <h3 style="padding: 0px 30px 0px 30px;">3. Estación Meteorológica Básica</h3>
+            <p style="padding: 0px 30px 0px 30px;">Usando el ESP32 con sensores sencillos (temperatura, humedad, presión atmosférica), puedes crear tu propia estación meteorológica para monitorear el clima en tiempo real y ver los datos en una página web.</p>
+
+        </div>
+
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/P1D3kkcNuMU" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen></iframe>
+        </div>
+    
+
+</body>
+</html>

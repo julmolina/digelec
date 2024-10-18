@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratorio 1 - Control de un LED con ESP32</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            /* Para centrar el contenido */
+        }
+
+        .navbar {
+            background-color: rgb(183, 27, 27); /* Cambiado a rojo */
+            padding: 15px;
+        }
+
+        .nav-items {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .nav-img {
+            width: 50px;
+            height: auto;
+        }
+
+        .informacion {
+            padding: 20px;
+            background-color: white;
+            margin: 20px auto; /* Centra horizontalmente */
+            border-radius: 8px;
+            max-width: 1200px;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        .video-container {
+            display: flex;
+            justify-content: center;
+            margin: 20px;
+        }
+
+        iframe {
+            width: 100%;
+            max-width: 800px;
+            height: 450px;
+        }
+
+        /* Estilos para el div del código */
+        .code-container {
+            background-color: #eee;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px auto;
+            max-width: 1200px;
+            text-align: left;
+        }
+
+        .code-container pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-left: 5px solid #ccc;
+            white-space: pre-wrap; /* Para que se ajuste el código */
+        }
+
+        .code-title {
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="nav-items">
+            <li class="nav-item">
+                <a href="esp32_laboratorios.html" class="nav-link">LABORATORIOS</a>
+            </li>
+            <li class="nav-item">
+                <img src="usco.png" alt="USCO Logo" class="nav-img">
+            </li>
+        </ul>
+    </nav>
+
+    <div class="informacion">
+        <h1>Laboratorio 1 - Control de un LED con ESP32</h1>
+
+        <h2>Introducción</h2>
+        <p>Este laboratorio te enseñará cómo encender y apagar un LED utilizando el GPIO del ESP32. Ideal para empezar a interactuar con hardware y aprender lo básico.</p>
+
+        <h2>Justificación</h2>
+        <p>El control de LEDs es una tarea fundamental al trabajar con microcontroladores, ya que permite aprender sobre la manipulación de pines y la interacción con dispositivos externos.</p>
+
+        <h2>Objetivos</h2>
+        <ul>
+            <li>Entender cómo manipular los GPIOs del ESP32.</li>
+            <li>Controlar un LED de manera programática.</li>
+        </ul>
+
+        <h2>Problema</h2>
+        <p>¿Cómo se puede controlar un LED utilizando el ESP32 para que se encienda y apague según instrucciones del código?</p>
+
+        <h2>Requerimientos</h2>
+        <ul>
+            <li>ESP32</li>
+            <li>LED</li>
+            <li>Resistencia de 220Ω</li>
+            <li>Cables para conexión</li>
+            <li>Breadboard</li>
+        </ul>
+
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/bmfhjIBEsAU"
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!-- Código del laboratorio -->
+    <div class="code-container">
+        <div class="code-title">Código para el Control del LED</div>
+        <pre>
+#include &lt;Arduino.h&gt;
+int ledPin = 2; // Pin donde está conectado el LED
+
+void setup() {
+    pinMode(ledPin, OUTPUT); // Configuramos el pin como salida
+}
+
+void loop() {
+    digitalWrite(ledPin, HIGH); // Encendemos el LED
+    delay(1000); // Esperamos 1 segundo
+    digitalWrite(ledPin, LOW);  // Apagamos el LED
+    delay(1000); // Esperamos 1 segundo
+}
+        </pre>
+    </div>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        margin: 20px;
+        color: #333;
+    }
+    ul {
+        list-style-type: disc;
+        margin-left: 60px;
+    }
+    li {
+        margin-bottom: 15px; /* Espacio entre cada subpunto */
+    }
+    strong {
+        color: #2c3e50;
+    }
+    .image-container {
+    text-align: center; /* Centra la imagen horizontalmente */
+}
+</style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raspberry Pi y pico - Presentación</title>
+    <link rel="stylesheet" href="styles.css">
+  
+</head>
+
+<body>
+    <nav class="navbar">
+        <ul class="nav-items">
+            <li class="nav-item">
+                <a href="index.html" class="nav-link">INICIO</a>
+            </li>
+            <li class="nav-item">
+                <img src="usco.png" alt="USCO Logo" class="nav-img">
+            </li>
+        </ul>
+    </nav>
+    <div class="informacion">
+        <h1>Presentación - Raspberry Pi y pico</h1>
+        <p>Contenido específico  de Raspberry Pi y pico en electrónica digital II</p>
+        
+    </div>
+    <div class="informacion1">
+        <h1>Raspberry Pi</h1>
+        <div class="content" style="text-align: justify;">
+            <p>El Raspberry Pi es un microordenador de placa única (SBC, por sus siglas en inglés) creado por la Fundación Raspberry Pi en el Reino Unido con el objetivo principal de fomentar la enseñanza de la informática básica en las escuelas y países en desarrollo. Desde su lanzamiento en 2012, se ha convertido en una herramienta fundamental no solo en el ámbito educativo, sino también en proyectos de electrónica, desarrollo de software, investigación, y en la creación de soluciones innovadoras en diversos campos.</p>
+            
+            <img src="Raspberry_Pi.jpg" alt="Raspberry Pi" class="info-image">  
+    </div>
+        <h2>Características principales del Raspberry Pi:</h2>
+        <ul style="text-align: justify;">
+            <li><strong>Procesador:</strong> Utiliza procesadores ARM de bajo consumo, típicamente con 4 u 8 núcleos dependiendo del modelo.</li>
+        <li><strong>Memoria RAM:</strong> Dependiendo del modelo, puede tener desde 512 MB hasta 8 GB de RAM.</li>
+        <li><strong>Almacenamiento:</strong> No tiene almacenamiento interno, pero utiliza tarjetas microSD para el sistema operativo y almacenamiento de datos.</li>
+        <li><strong>Sistema Operativo:</strong> Su sistema operativo principal es Raspberry Pi OS (anteriormente Raspbian), una versión de Linux basada en Debian, aunque es compatible con otros sistemas operativos como Ubuntu, Windows IoT Core y diversas versiones de Android.</li>
+        <li><strong>Conectividad:</strong> Dependiendo del modelo, puede incluir puertos USB, HDMI, GPIO, Ethernet, Wi-Fi y Bluetooth.</li>
+        <li><strong>GPIO:</strong> Dispone de un conjunto de pines GPIO (General Purpose Input/Output) que permiten interactuar con una amplia variedad de componentes electrónicos como LEDs, sensores, motores, y más.</li>
+        <li><strong>Aplicaciones:</strong> Se utiliza en una gran variedad de proyectos, desde la creación de servidores caseros, sistemas de automatización del hogar, robots, estaciones meteorológicas, hasta proyectos educativos y de entretenimiento.</li>
+        </ul>
+        <p>El Raspberry Pi es muy popular entre los aficionados a la tecnología y los educadores debido a su bajo costo, tamaño compacto, y gran comunidad de soporte.</p>
+    </div>
+    <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/ApRQqQhZu9U" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen></iframe>
+    </div>
+
+
+
+    <div class="informacion1">
+        <h1>Raspberry Pi pico</h1>
+        <div class="content" style="text-align: justify;">
+            <p>La Raspberry Pi Pico es un microcontrolador diseñado y lanzado por Raspberry Pi Foundation. A diferencia de las computadoras de placa única de la serie Raspberry Pi (como la Raspberry Pi 4 o la Raspberry Pi Zero), que funcionan como pequeñas computadoras con sistemas operativos completos, la Raspberry Pi Pico está diseñada para ser un microcontrolador simple y eficiente en costo, ideal para proyectos de electrónica y programación de bajo nivel.</p>
+            
+            <img src="raspberry_pico.jpg" alt="Raspberry Pi" class="info-image">
+            
+        </div>
+        <h2>Características principales del Raspberry Pi pico:</h2>
+        <ul>
+            <li><strong>Procesador:</strong> Dual-core ARM Cortex-M0+ a 133 MHz.</li>
+            <li><strong>Memoria RAM:</strong> 264 KB de SRAM y 2 MB de memoria flash integrada.</li>
+            <li><strong>Almacenamiento:</strong> Soporte para expandir la memoria flash externa a través de un conector QSPI.</li>
+            <li><strong>Programacion:</strong> Compatible con MicroPython, C/C++ y otros lenguajes de programación de microcontroladores.</li>
+            <li><strong>Conectividad:</strong> Soporte para UART, SPI, I2C para comunicaciones seriales.</li>
+            <li><strong>GPIO:</strong> 26 pines GPIO multifunción, que pueden usarse para digital I/O, PWM, ADC, UART, SPI, I2C, etc. 3 pines ADC de 12 bits para leer señales analógicas.</li>
+        </ul>
+        <p>La Raspberry Pi Pico es una opción versátil y económica para proyectos de electrónica, automatización, robótica, y aprendizaje de programación de microcontroladores.</p>
+    </div>
+    <div class="video-container">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/vNokUi-mQiw?si=7yPo81tZ2wfzfzkq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <div class="informacion1"></div>
+        <h1>Partes y componentes de la raspberry Pi</h1>
+        <div class="image-container""><img src="raspberrypi_componentes.jpg" alt="Raspberry Pi" ></div>
+        <h2>Componentes de la raspberry Pi</h2>
+        <ul>
+            <li><strong>Entrada Tarjeta SD:</strong> Este es el lugar donde se inserta la tarjeta microSD que contiene el sistema operativo y el almacenamiento principal de la Raspberry Pi. Funciona como el disco duro de la Raspberry Pi.</li>
+            <li><strong>Conexión DSI Display:</strong> Puerto de conexión para pantallas compatibles con el estándar DSI (Display Serial Interface), como la pantalla táctil oficial de Raspberry Pi.</li>
+            <li><strong>Micro USB Alimentación:</strong> Puerto a través del cual se suministra energía a la Raspberry Pi. Requiere un adaptador de 5V/2.5A (según el modelo).</li>
+            <li><strong>Salida Video HDMI:</strong> Conector HDMI para la salida de video y audio a monitores o televisores. Permite visualizar la interfaz gráfica de la Raspberry Pi en pantallas externas.</li>
+            <li><strong>Conector Cámara CSI:</strong> Puerto de conexión para cámaras compatibles con el estándar CSI (Camera Serial Interface), como la cámara oficial de Raspberry Pi. Se utiliza para proyectos de captura de video e imagen.</li>
+            <li><strong>Salida Sonido/Video RCA Jack:</strong> Conector combinado para la salida de audio analógico y video compuesto (RCA). Se utiliza para conectar la Raspberry Pi a televisores antiguos o dispositivos de audio analógico.</li>
+            <li><strong>40 pin Extended GPIO:</strong> Cabecera de pines GPIO (General Purpose Input/Output) que permite la conexión de la Raspberry Pi con una amplia variedad de sensores, actuadores, y otros dispositivos electrónicos. Estos pines permiten realizar proyectos de hardware controlados por la Raspberry Pi.</li>
+            <li><strong>CPU/Chipset:</strong> Este es el procesador principal de la Raspberry Pi, que maneja todas las operaciones computacionales. Dependiendo del modelo, puede incluir también una GPU (Unidad de Procesamiento Gráfico) integrada.</li>
+            <li><strong>4x USB:</strong> Cuatro puertos USB estándar para conectar periféricos como teclados, ratones, unidades de almacenamiento, o adaptadores de red.</li>
+            <li><strong>Conector Ethernet:</strong> Puerto para conectar la Raspberry Pi a una red mediante un cable Ethernet, proporcionando una conexión a internet por cable o red local.</li>
+        </ul>
+        
+    </div>
+
+    <div class="informacion1">
+        <h1>Partes y componentes de la raspberry Pi pico</h1>
+        <div class="image-container""><img src="raspberrypico_componentes.jpg" alt="Raspberry Pi" ></div>
+        <h2>Componentes de la raspberry Pi pico</h2>
+        <ul>
+            <li><strong>USB Micro B Power & Data:</strong> Este puerto se utiliza tanto para alimentar la Raspberry Pi Pico como para transferir datos. Es el principal punto de conexión para interactuar con la Pico desde una computadora.</li>
+            <li><strong>Programmable LED:</strong> Un LED incorporado que puede ser programado para encenderse o apagarse, o parpadear, proporcionando una forma simple de dar retroalimentación visual en tus proyectos.</li>
+            <li><strong>Boot Selection Button:</strong> Un botón que permite seleccionar el modo de arranque. Al mantenerlo presionado mientras se conecta el USB, la Pico entra en modo de almacenamiento masivo para facilitar la programación o actualización del firmware.</li>
+            <li><strong>2 MByte Quad-SPI Flash:</strong> La Raspberry Pi Pico incluye 2 megabytes de memoria flash, utilizada para almacenar el código y los datos del programa que se ejecuta en la microcontroladora.</li>
+            <li><strong>0.1" Spacing Pads Breadboard Friendly:</strong> Los pines de la Pico tienen un espaciado de 0.1 pulgadas, lo que hace que sea compatible con la mayoría de las placas de pruebas (breadboards), facilitando su uso en proyectos de prototipado.</li>
+            <li><strong>RP2040 MCU Silicon:</strong> El microcontrolador principal de la Raspberry Pi Pico. Es un chip de doble núcleo con arquitectura ARM Cortex-M0+, que incluye 264 KB de SRAM y funciona a una velocidad de reloj de 48 MHz, con un máximo de 133 MHz. Soporta USB 1.1 como host y dispositivo.</li>
+            <li><strong>Built-in 12-bit Temperature Sensor:</strong> Un sensor de temperatura de 12 bits integrado en el microcontrolador, que permite medir la temperatura ambiente sin necesidad de componentes adicionales.</li>
+            <li><strong>SMT friendly Castellated Edges:</strong> Los bordes de la placa tienen pads semi-perforados que facilitan la soldadura superficial (SMT), permitiendo su integración en otros circuitos de manera sencilla.</li>
+        </ul>
+        
+        
+    </div>
+
+    <div class="informacion1">
+        <h1>Arquitectura de los pines Raspberry Pi</h1>
+        <div class="image-container""><img src="raspberrypi_pines.jpg" alt="Raspberry Pi" ></div>   
+    </div>
+
+    <div class="informacion1">
+        <h1>Pines (GPIO) de la raspberry Pi pico</h1>
+        <div class="image-container""><img src="raspberrypico_pines.jpg" alt="Raspberry Pi" ></div>   
+    </div>
+
+    
+
+
+
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            color: #333;
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 60px;
+        }
+        li {
+            margin-bottom: 15px; /* Espacio entre cada subpunto */
+        }
+        strong {
+            color: #2c3e50;
+        }
+    </style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arduino - Presentación</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="nav-items">
+            <li class="nav-item">
+                <a href="index.html" class="nav-link">INICIO</a>
+            </li>
+            <li class="nav-item">
+                <img src="usco.png" alt="USCO Logo" class="nav-img">
+            </li>
+        </ul>
+    </nav>
+    <div class="informacion">
+        <h1>Presentación - Arduino</h1>
+        <p>Contenido específico  de Arduino en electrónica digital II</p>
+        
+    </div>
+    <div class="informacion1">
+        <h1>Arduino</h1>
+        <div class="content">
+            <p>El Arduino es una placa basada en un microcontrolador ATMEL. Los microcontroladores son circuitos integrados en los que se pueden grabar instrucciones, las cuales las escribes con el lenguaje de programación que puedes utilizar en el entorno Arduino IDE. Estas instrucciones permiten crear programas que interactúan con los circuitos de la placa.
+                El microcontrolador de Arduino posee lo que se llama una interfaz de entrada, que es una conexión en la que podemos conectar en la placa diferentes tipos de periféricos. La información de estos periféricos que conectes se trasladará al microcontrolador, el cual se encargará de procesar los datos que le lleguen a través de ellos.
+                El tipo de periféricos que puedas utilizar para enviar datos al microcontrolador depende en gran medida de qué uso le estés pensando dar. Pueden ser cámaras para obtener imágenes, teclados para introducir datos, o diferentes tipos de sensores.</p>
+            <img src="arduino.JPG" alt="Arduino" class="info-image">
+        </div>
+        <h2>Modelos de Arduino:</h2>
+        <ul>
+            <li><strong>Arduino Uno:</strong> El modelo más popular, ideal para principiantes.</li>
+            <br>
+            <div class="image-container">
+                <img src="arduino_uno.jpg" alt="Arduino Uno" class="info-image12">
+               
+            </div>
+        <li><strong>Arduino Mega: </strong> Ofrece más pines de entrada/salida y más memoria, adecuado para proyectos más complejos.</li>
+        <br>
+        <div class="image-container">
+            <img src="ArduinoMega.png " alt="Arduino Uno" class="info-image12">
+           
+        </div>
+
+        <li><strong>Arduino Nano: </strong> Una versión más pequeña del Arduino Uno, perfecta para proyectos con espacio limitado.</li>
+        <div class="image-container">
+            <img src="arduinouno.JPG " alt="Arduino Uno" class="info-image12">
+           
+        </div>
+        <li><strong>Arduino Leonardo:</strong>Capaz de emular un teclado o un ratón, ideal para proyectos de interacción con la computadora.</li>
+        <div class="image-container">
+            <img src="arduinoleonardo.png " alt="Arduino Uno" class="info-image12"> 
+        </div>
+        
+        </ul>
+        <h2>Pines y Conectores de Arduino:</h2>
+        <p>Conocer los pines de Arduino es crucial porque son los puntos de conexión entre la placa y otros componentes electrónicos, permitiendo la interacción del microcontrolador con el entorno. Estos pines permiten conectar sensores, actuadores, pantallas, motores, y otros dispositivos, lo que amplía las capacidades del Arduino para proyectos diversos.
+
+            Cada pin tiene funciones específicas, como recibir señales de entrada, enviar señales de salida, comunicarse con otros dispositivos a través de protocolos como I2C o SPI, y controlar el flujo de energía en el circuito. Por ejemplo, los pines analógicos permiten leer valores de sensores que varían en el tiempo, como la temperatura, mientras que los pines digitales se usan para encender o apagar dispositivos.
+            
+            El uso adecuado de los pines es esencial para evitar dañar la placa y asegurar el correcto funcionamiento del proyecto. Además, entender las capacidades y limitaciones de cada pin ayuda a optimizar el diseño del circuito, garantizando que se utilicen los pines más adecuados para cada función, lo que resulta en un proyecto más eficiente y robusto.</p>
+        <br>
+        <div class="image-container">
+            <img src="pines.JPG" alt="Pines de Arduino" class="info-image12">
+            <img src="pinestwo.JPG" alt="Pines adicionales de Arduino" class="info-image12">
+        </div>
+
+        <ul>
+            <li ><strong style=" color: #b30808;"> 1. Pin Conector USB:</strong> Para empezar, este puerto tiene un fusible PPTC que protege la placa e impide que el consumo de corriente sea superior a 500mA, por lo que el consumo de la placa más las cargas conectadas a esta no podrán ser superiores a esta cifra.</li>
+            <p style="font-size: 15px;"><strong style=" color: #b30808;">Funciones del conector USB:</strong></p>
+            <ul>
+                <li style="font-size: 15px;">Conectar Arduino al ordenador y volcar el programa que hemos hecho en el IDE de Arduino.</li>
+                <li style="font-size: 15px;">Alimentar la placa con 5 Vdc.</li>
+            </ul>   
+            <li><strong style=" color: #b30808;">2. Pin Conector de alimentación JACK: </strong>Esta entrada de alimentación es para alimentar la placa entre 7 y 12 voltios en corriente continua.
+                <p style="font-size: 15px;"><strong style=" color: #b30808;">Protecciones:</strong></p>
+                <ul>
+                    <li style="font-size: 15px;">Protección contra inversión de polaridad.</li>
+                    <li style="font-size: 15px;">Regulador de tensión que maneja una caída de tensión.</li>
+                </ul>
+            
+            </li>
+            <li><strong style=" color: #b30808;">3. Pines  Vin y GND: </strong>El pin Vin se comporta como entrada o salida de tensión y GND es el potencial cero voltios o negativo de la alimentación.</li>
+            <li><strong style=" color: #b30808;">4. Pin 5v: </strong>Este pin también tiene doble función. Cuando se alimenta por el USB o el Jack, proporciona una tensión regulada de 5 Vdc.</li>
+            <li><strong style=" color: #b30808;">5. Pin 3.3v: </strong>Este pin proporciona una tensión de salida de 3.3 Vdc y una corriente máxima de 60mA.</li>
+            <li><strong style=" color: #b30808;">6. Pin Reset: </strong>Conector del botón de reset para reinicializar el microcontrolador.</li>
+            <li><strong style=" color: #b30808;">7. IOREF: </strong>Proporciona la tensión de referencia de trabajo de la placa (5V en Arduino Uno).</li>
+            <li><strong style=" color: #b30808;">8. No conectado: </strong>Este pin no está conectado en Arduino Uno.</li>
+            <li><strong style=" color: #b30808;">9. Botón de reset </strong>Este botón reinicializa el microcontrolador.</li>
+            <li><strong style=" color: #b30808;">10. Entradas analógicas A0….A5: </strong>Convertidor analógico-digital con 10 bits de resolución, permitiendo hasta 1024 valores.</li>
+            <li><strong style=" color: #b30808;">11. Pin AREF: </strong>Referencia analógica para entradas analógicas.</li>
+            <li><strong style=" color: #b30808;">12. Pines entradas y salidas digitales 0….13: </strong>Usados para señales de 0V (LOW) o 5V (HIGH).</li>
+            <li><strong style=" color: #b30808;">13. Pines 0 (RX) y 1 (TX): </strong>Comunicación serial, usados durante la programación del microcontrolador.</li>
+            <li><strong style=" color: #b30808;">14. SDA y SCL: </strong>Pines de comunicación I2C para conectar dispositivos como sensores y pantallas LCD.</li>
+            <li><strong style=" color: #b30808;">15. Comunicación SPI: </strong>Usa pines específicos para la comunicación serie con otros dispositivos.</li>
+            <li><strong style=" color: #b30808;">16. GND: </strong>Todos los pines marcados como GND son el negativo o masa.</li>
+            <li><strong style=" color: #b30808;">17. Pines ICSP Atmega328: </strong>Programación serie en circuito para cargar el bootloader o programar Arduino.</li>
+            <li><strong style=" color: #b30808;">18. Pines ICSP Atmega16U2: </strong>Para programar el chip Atmega16U2, que actúa como interfaz entre el puerto USB y el microcontrolador principal.</li>
+
+
+        </ul>
+        
+    </div>
+    <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/Zs9MZosVuqo" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen></iframe>
+    </div>
+
+    <div class="informacion1">
+        <h1>Software de Arduino</h1>
+        <div class="content">
+            <p>Para empezar a programar la placa Arduino es necesario descargar un IDE (Integrated Development Environment). 
+            El IDE es un conjunto de herramientas de software que permiten a los programadores desarrollar y grabar todo el código necesario para hacer que nuestro Arduino funcione como queramos. 
+            El IDE de Arduino nos permite escribir, depurar, editar y grabar nuestro programa (llamados “sketches” en el mundo Arduino) de una manera sumamente sencilla, en gran parte a esto se debe el éxito de Arduino, a su accesibilidad. Para empezar a desarrollar nuestro sketches (o probar algunos desarrollados por terceros) debemos instalar en nuestro computador el IDE que nos proporciona el proyecto Arduino, simplemente entramos al siguiente video, en donde entraremos al sitio de descargas, seleccionamos el archivo correspondiente a nuestro tipo y versión de sistema operativo (Windows, Mac OS, Linux) y seguimos los pasos estándar de instalación de cualquier aplicación nativa de nuestro sistema operativo.</p>
+            <img src="arduinoide.jpeg" alt="Arduino IDE" class="info-image">
+        </div>   
+    </div>
+
+    <div class="video-container">
+        <iframe width="1083" height="609" src="https://www.youtube.com/embed/nqynw6XQlnY" title="CÓMO INSTALAR ARDUINO en 2024" 
+        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>               
+    </div>
+    
+    <div class="informacion1">
+        <h1>Familiarizate con el IDE de Arduino</h1>
+        <div class="content">
+            <p>Una vez instalado el IDE Arduino al iniciarlo nos encontraremos con una ventana similar a esta:</p>            
+        </div> 
+    </div>
+    
+    <img src="arduinoide1.png" alt="Arduino IDE 1" style="display: block; margin: 0 auto;">  
+     
+    <div class="informacion1">
+        <div class="content">
+            <p>El área de trabajo puede ser dividida en 5 grandes partes. De arriba abajo son: la barra de menús, la barra de botones, el editor de código, la barra de consola de mensajes, y la barra de estado.
+
+                La mayoría del tiempo estaremos trabajando en el editor de código, donde desarrollaremos nuestros proyectos.
+                
+                A los elementos que mas les sacaremos provecho son:</p>
+        </div>      
+    </div>
+    <img src="arduinoide2.png" alt="Arduino IDE 1" style="display: block; margin: 0 auto;"> 
+    <ul>
+        <li><strong style=" color: #b30808;">Verificar: </strong>Este botón realiza dos funciones: comprueba que no hayan error en nuestro código, y si no hay problemas, lo compila.</li>
+        <li><strong style=" color: #b30808;">Subir: </strong>ste botón lo utilizamos luego de “Verificar”. Su función es cargar en la memoria del microcontrolador el programa que hemos escrito.</li>
+        <li><strong style=" color: #b30808;">Nuevo: </strong>Crea un nuevo sketch vacío.</li>
+        <li><strong style=" color: #b30808;">Abrir: </strong>Despliega un menú con todos los sketches disponibles para abrir. Podemos abrir nuestros propios sketches como la gran cantidad de sketches que viene listos como ejemplos para probar, clasificados en categorías dentro del menú.</li>
+        <li><strong style=" color: #b30808;">Guardar: </strong>Guarda el código de nuestro sketch en un fichero, el cual tendrá la extensión “.ino”. Podemos guardar estos ficheros donde queramos, pero el IDE Arduino nos ofrece una carpeta específica para ello, la carpeta “Arduino” en “Documentos”, ahí se creara una carpeta con el nombre de tu skecth, así el IDE evita que se mezclen los archivos de los distintos skecth.</li>
+        <li><strong style=" color: #b30808;">Monitor serial: </strong>Abre el monitor serial. Nos permite ver información transmitida desde nuestro Arduino por el puerto de comunicación serial, aquí hablamos un poco mas de el.</li>
+        <li><strong style=" color: #b30808;">Menu contextual: </strong>Esta pestaña se ubica bajo el botón de monitor serial, nos permite abrir nuevas pestañas. Abrir nuevas pestañas es de suma utilidad cuando tenemos códigos tan largos que necesitamos dividirlo en partes para trabajar mas cómodamente. Es es así porque todas las nuevas pestañas abiertas forman parte del mismo proyecto que la primera pestaña original. Lo mas habitual es utilizar pestañas separadas para la definición de funciones, constantes o variables globales.</li>
+    </ul> 
+    <div class="informacion1">
+        <div class="content">
+            <p>En la barra de menú hallaremos opciones mas tradicionales que de igual manera son útiles de conocer: “Archivo”, “Editar”, “Programa”, “Herramientas” y “Ayuda”.</p>
+        </div>              
+    </div>
+    <img src="arduinoide3.png" alt="Arduino IDE 1" style="display: block; margin: 0 auto;">
+    <ul>
+        <li><strong style=" color: #b30808;">Archivo: </strong>Ofrece acciones estándar como crear un nuevo documento sketch, abrir uno existente, guardarlo, cerrarlo, cerrar el IDE, etc. También añade otras funciones interesantes, como “Ejemplos” donde podemos acceder a los sketches de ejemplo que vienen de serie con el IDE y gracias a la entrada “Proyectos” podemos acceder a nuestros propios sketches guardados en las diferentes sub-carpetas que hay dentro de la carpeta “Arduino”.</li>
+        <li><strong style=" color: #b30808;">Editor: </strong>Además de ofrecer acciones estándar como deshacer y rehacer, cortar, copiar y pegar texto, seleccionar todo el texto o buscar y remplazar texto, podemos ver otras acciones interesantes. Por ejemplo, gracias a la entrada “copiar al foro” podemos copiar el código de nuestro sketch al portapapeles de nuestro sistema operativo en una forma que es especialmente adecuada para pegarlo directamente en el foto oficial de Arduino. También podemos “copiar como HTML” el cual copia en una forma especial para pegarlo en paginas web genéricas.</li>
+        <li><strong style=" color: #b30808;">Programa: </strong>en este menú se ofrece la acción de verificar/compilar nuestro sketch, la de abrir la capeta donde esta guardado el fichero “.ino” que se esta editando en este momento, la de añadir en una nueva pestaña un nuevo fichero de código a nuestro sketch y la de importar librerías.</li>
+        <li><strong style=" color: #b30808;">Herramientas: </strong>En este menú se ofrecen diferentes herramientas variadas, como la posibilidad de auto-formatear el código para hacerlo mas legible, la posibilidad de guardar una copia de todos los sketches del proyecto actual en formato .zip, la posibilidad de abrir el monitor serie, etc. Otras herramientas mucho mas avanzadas son por ejemplo la entrada “Programador:” que podemos usar para seleccionar un programador externo y poder grabar el sketch en memoria a través de dicho programador o “Quemar bootloader”, útil cuando queramos grabar un nuevo bootloader en el microcontrolador de la placa.</li>
+        <li><strong style=" color: #b30808;">Ayuda: </strong>Desde este menú podemos acceder a varias secciones de la pagina web oficial de Arduino que contienen diferente artículos, tutoriales y ejemplos de ayuda. No se necesita internet para consultar duchas secciones ya que eta documentación se descarga junto con el propio IDE, por lo que su acceso se realiza en forma local.</li>
+        <li><strong style=" color: #b30808;">Monitor serial: </strong>El monitor serial es una ventana del IDE que nos permite desde nuestro computador enviar y recibir datos textuales a la placa Arduino usando el cable USB (el cual utiliza la conexión serie). Para enviar datos, simplemente hay que escribir el texto deseado en la caja de texto que aparece en su parte superior y presionar el botón “enviar”. Por otro lado, los datos recibidos provenientes de la placa serán mostrados en la sección central del “monitor serial”.</li>
+    </ul>
+    <div class="informacion1">
+        <div class="content">
+            <p>Es importante elegir la misma velocidad de transmisión que se haya especificado en el programa ejecutado en la placa, porque si no, los caracteres transferidos no serán reconocidos correctamente.</p>
+        </div>              
+    </div>
+    <div class="video-container">
+    <iframe width="678" height="391" src="https://www.youtube.com/embed/EEKMPT_YcTI" title="💡Cómo PROGRAMAR arduino UNO desde CERO【 2021 】 - Capítulo #02🔋" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+</body>
+</html>
+
+
+

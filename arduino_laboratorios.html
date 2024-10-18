@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="es">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            color: #333;
+        }
+
+        ul {
+            list-style-type: disc;
+            margin-left: 60px;
+        }
+
+        li {
+            margin-bottom: 15px; /* Espacio entre cada subpunto */
+        }
+
+        strong {
+            color: #2c3e50;
+        }
+
+        .code-container {
+            background-color: #f4f4f4;
+            border-left: 5px solid #ccc;
+            padding: 10px;
+            margin-bottom: 20px;
+            white-space: pre; /* Mantiene los espacios y saltos de línea */
+            font-family: "Courier New", Courier, monospace;
+            overflow-x: auto;
+        }
+
+        .image-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .info-image12 {
+            width: 350px;
+            height: auto;
+            border-radius: 10px;
+            margin: 0 auto;
+            display: block;
+        }
+
+        .titulo-gris {
+            text-align: center;
+            color: gray;
+            font-size: 30px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+    </style>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arduino - Presentación</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <ul class="nav-items">
+            <li class="nav-item">
+                <a href="index.html" class="nav-link">INICIO</a>
+            </li>
+            <li class="nav-item">
+                <img src="usco.png" alt="USCO Logo" class="nav-img">
+            </li>
+        </ul>
+    </nav>
+
+    <div class="informacion">
+        <h1>Laboratorios - Arduino</h1>
+        <p>Contenido específico de laboratorios de Arduino.</p>
+    </div>
+
+    <div class="informacion1">
+        <div class="titulo-gris">
+            CONEXIÓN DE TARJETA ARDUINO Y CONTROL DESDE MATLAB
+        </div>
+
+        <h1>Guía para envío de datos a tarjeta Arduino</h1>
+
+        <div class="image-container">
+            <img src="guide.jpg" alt="Guide Image" class="info-image12">
+        </div>
+
+        <div class="content">
+            <h2>Código MATLAB:</h2>
+            <div class="code-container">
+                function varargout = ejeagriard(varargin)
+                % EJEAGRIARD MATLAB code for ejeagriard.fig
+                %      EJEAGRIARD, by itself, creates a new EJEAGRIARD or raises the existing
+                %      singleton*.
+                %
+                %      H = EJEAGRIARD returns the handle to a new EJEAGRIARD or the handle to
+                %      the existing singleton*.
+                %
+                %      EJEAGRIARD('CALLBACK',hObject,eventData,handles,...) calls the local
+                %      function named CALLBACK in EJEAGRIARD.M with the given input arguments.
+                %
+                %      EJEAGRIARD('Property','Value',...) creates a new EJEAGRIARD or raises the
+                %      existing singleton*.  Starting from the left, property value pairs are
+                %      applied to the GUI before ejeagriard_OpeningFcn gets called.  An
+                %      unrecognized property name or invalid value makes property application
+                %      stop.  All inputs are passed to ejeagriard_OpeningFcn via varargin.
+                %
+                %      *See GUI Options on GUIDE's Tools menu.  Choose "GUI allows only one
+                %      instance to run (singleton)".
+                %
+                % See also: GUIDE, GUIDATA, GUIHANDLES
+
+                % Edit the above text to modify the response to help ejeagriard
+
+                % Last Modified by GUIDE v2.5 06-Feb-2019 14:57:01
+
+                % Begin initialization code - DO NOT EDIT
+                gui_Singleton = 1;
+                gui_State = struct('gui_Name',       mfilename, ...
+                                'gui_Singleton',  gui_Singleton, ...
+                                'gui_OpeningFcn', @ejeagriard_OpeningFcn, ...
+                                'gui_OutputFcn',  @ejeagriard_OutputFcn, ...
+                                'gui_LayoutFcn',  [] , ...
+                                'gui_Callback',   []);
+                if nargin && ischar(varargin{1})
+                    gui_State.gui_Callback = str2func(varargin{1});
+                end
+
+                if nargout
+                    [varargout{1:nargout}] = gui_mainfcn(gui_State, varargin{:});
+                else
+                    gui_mainfcn(gui_State, varargin{:});
+                end
+                % End initialization code - DO NOT EDIT
+
+
+                % --- Executes just before ejeagriard is made visible.
+                function ejeagriard_OpeningFcn(hObject, eventdata, handles, varargin)
+                % This function has no output args, see OutputFcn.
+                % hObject    handle to figure
+                % eventdata  reserved - to be defined in a future version of MATLAB
+                % handles    structure with handles and user data (see GUIDATA)
+                % varargin   command line arguments to ejeagriard (see VARARGIN)
+
+                % Choose default command line output for ejeagriard
+                handles.output = hObject;
+
+                % Update handles structure
+                guidata(hObject, handles);
+                clear all;
+                global a ledPin;
+                a = arduino('COM5','UNO');
+                ledPin='D12';
+
+
+                % --- Outputs from this function are returned to the command line.
+                function varargout = ejeagriard_OutputFcn(hObject, eventdata, handles) 
+                % varargout  cell array for returning output args (see VARARGOUT);
+                % hObject    handle to figure
+                % eventdata  reserved - to be defined in a future version of MATLAB
+                % handles    structure with handles and user data (see GUIDATA)
+
+                % Get default command line output from handles structure
+                varargout{1} = handles.output;
+
+
+                % --- Executes on button press in onboton.
+                function onboton_Callback(hObject, eventdata, handles)
+                % hObject    handle to onboton (see GCBO)
+                % eventdata  reserved - to be defined in a future version of MATLAB
+                % handles    structure with handles and user data (see GUIDATA)
+                global a ledPin;
+                writeDigitalPin(a,ledPin,1);
+                set(handles.tx,'String','EQUIPO ENCENDIDO');
+
+                % --- Executes on button press in pushbutton2.
+                function pushbutton2_Callback(hObject, eventdata, handles)
+                % hObject    handle to pushbutton2 (see GCBO)
+                % eventdata  reserved - to be defined in a future version of MATLAB
+                % handles    structure with handles and user data (see GUIDATA)
+                global a ledPin;
+                writeDigitalPin(a,ledPin,0);
+                %tx.setText('Apagado el equipo');
+                %r2='ENCENDIDO';
+                set(handles.tx,'String','EQUIPO APAGADO');
+
+            </div>
+        </div>
+
+        <h1>Script Lectura de datos de tarjeta Arduino (entrada analógica A0)</h1>
+
+        <div class="content">
+            <h2>Código MATLAB:</h2>
+            <div class="code-container">
+                %a = arduino;
+                %ledPin=13;
+                %for idx = 0:10
+                %    writeDigitalPin(a,ledPin,1);
+                %    pause(0.5);
+                %    writeDigitalPin(a,ledPin,0);
+                %    pause(0.5);
+                %end
+                
+                %%PWM de encendido a apagado
+                %ledpinpwm=9
+                %for brightness = 1:-0.1:0
+                %    writePWMDutyCycle(a,ledpinpwm,brightness);
+                %    pause(0.5);
+                %end
+                %%PWM de apagado a encendido
+                %for brightness = 0:0.1:1
+                %    writePWMDutyCycle(a,ledpinpwm,brightness);
+                %    pause(0.5);
+                %end
+                
+                %Lectura de pin digital o de voltaje
+                %valordigital = readDigitalPin(a,ledPin)
+                %voltaje=readVoltage(a, 'A0')
+                
+                %Encender o apagar dependiendo de lo sensado 
+                
+                %a = arduino;
+                %ledPin=13;
+                %fprintf('Menú para del sistema de control \n');
+                %fprintf('1. Sensar para Activar o Desactivar Actuador \n');
+                %fprintf('0. Salir del Sistema \n');
+                %b=input('Escoja la Opción: ');
+                %while (b==1)
+                %        voltaje=readVoltage(a, 'A0')
+                %    if (voltaje > 3.7)
+                %        writeDigitalPin(a,ledPin,1);
+                %        disp('Encendidas Luminarias')
+                %        fprintf('Menú para del sistema de control \n');
+                %        fprintf('1. Sensar para Activar o Desactivar Actuador \n');
+                %        fprintf('0. Salir del Sistema \n');
+                %        b=input('Escoja la Opción: ');
+                %    else
+                %        writeDigitalPin(a,ledPin,0);
+                %        disp('Apagadas Luminarias')
+                %        fprintf('Menú para del sistema de control \n');
+                %        fprintf('1. Sensar para Activar o Desactivar Actuador \n');
+                %        fprintf('0. Salir del Sistema \n');
+                %        b=input('Escoja la Opción: ');
+                %    end
+                %end
+                %global a ledPin y;
+                y=[];%declaración de vector para cargar los datos sensados
+                clear all;
+                global a ledPin;
+                a = arduino('COM6','UNO');
+                ledPin='D13';
+                %a = arduino('COM5','UNO');
+                %ledPin='D12';
+                b=input('Cuantos segundos quiere el funcionamiento del sistema: ');
+                for ciclof = 1:1:b
+                    %writePWMDutyCycle(a,ledpinpwm,brightness);
+                    voltaje = readVoltage(a, 'A0')
+                    y(ciclof)=voltaje;
+                    %readPotentiometerUI(a)
+                    if (voltaje > 3.7)
+                        writeDigitalPin(a,ledPin,1);
+                        %writeLedUI(a)
+                        fprintf('En el segundo %d',ciclof);
+                        fprintf('\n');
+                        disp('Encendidas Luminarias')
+                    else
+                        writeDigitalPin(a,ledPin,0);
+                        %writeLedUI(a)
+                        fprintf('En el segundo %d',ciclof);
+                        fprintf('\n');
+                        disp('Apagadas Luminarias')
+                    end
+                       pause(1);
+                end
+                %plot(y,'g')
+                %plot(y,'b*');
+                bar(y,'y')
+                %bar(y)
+                xlabel('Muestra en cada segundo')
+                ylabel('Rango de Voltaje')
+                title('Voltaje vs Muestra')
+                fprintf('Finalizo tiempo de funcionamiento en : \n %d ',b);
+                fprintf('segundos \n');
+                clear;
+            </div>
+        </div>
+
+        <h1>Entrada y salida de datos OpeningFcn</h1>
+
+        <div class="image-container">
+            <img src="luz.JPG" alt="Luz Sensor" class="info-image12">
+        </div>
+
+        <div class="content">
+            <h2>Código MATLAB:</h2>
+            <div class="code-container">
+                function varargout = lab_sensorLuz(varargin)
+                % LAB_SENSORLUZ MATLAB code for lab_sensorLuz.fig
+                %      LAB_SENSORLUZ, by itself, creates a new LAB_SENSORLUZ or raises the existing
+                %      singleton*.
+                %
+                %      H = LAB_SENSORLUZ returns the handle to a new LAB_SENSORLUZ or the handle to
+                %      the existing singleton*.
+                %
+                %      LAB_SENSORLUZ('CALLBACK',hObject,eventData,handles,...) calls the local
+                %      function named CALLBACK in LAB_SENSORLUZ.M with the given input arguments.
+                %
+                %      LAB_SENSORLUZ('Property','Value',...) creates a new LAB_SENSORLUZ or raises the
+                %      existing singleton*.  Starting from the left, property value pairs are
+                %      applied to the GUI before lab_sensorLuz_OpeningFcn gets called.  An
+                %      unrecognized property name or invalid value makes property application
+                %      stop.  All inputs are passed to lab_sensorLuz_OpeningFcn via varargin.
+                %
+                %      *See GUI Options on GUIDE's Tools menu.  Choose "GUI allows only one
+                %      instance to run (singleton)".
+                %
+                % See also: GUIDE, GUIDATA, GUIHANDLES
+                
+                % Edit the above text to modify the response to help lab_sensorLuz
+                
+                % Last Modified by GUIDE v2.5 26-May-2022 10:47:02
+                
+                % Begin initialization code - DO NOT EDIT
+                gui_Singleton = 1;
+                gui_State = struct('gui_Name',       mfilename, ...
+                                   'gui_Singleton',  gui_Singleton, ...
+                                   'gui_OpeningFcn', @lab_sensorLuz_OpeningFcn, ...
+                                   'gui_OutputFcn',  @lab_sensorLuz_OutputFcn, ...
+                                   'gui_LayoutFcn',  [] , ...
+                                   'gui_Callback',   []);
+                if nargin && ischar(varargin{1})
+                    gui_State.gui_Callback = str2func(varargin{1});
+                end
+                
+                if nargout
+                    [varargout{1:nargout}] = gui_mainfcn(gui_State, varargin{:});
+                else
+                    gui_mainfcn(gui_State, varargin{:});
+                end
+                % End initialization code - DO NOT EDIT
+                
+                
+                % --- Executes just before lab_sensorLuz is made visible.
+                function lab_sensorLuz_OpeningFcn(hObject, eventdata, handles, varargin)
+                % This function has no output args, see OutputFcn.
+                % hObject    handle to figure
+                % eventdata  reserved - to be defined in a future version of MATLAB
+                % handles    structure with handles and user data (see GUIDATA)
+                % varargin   command line arguments to lab_sensorLuz (see VARARGIN)
+                
+                % Choose default command line output for lab_sensorLuz
+                handles.output = hObject;
+                % Update handles structure
+                guidata(hObject, handles);
+                
+                clear all
+                global a ledPin;
+                a = arduino('COM6','UNO');
+                ledPin='D13';
+                
+                %global ntx
+                %{
+                ntx=24.6786
+                tx=num2str(ntx)
+                set(handles.txsensor,'String',tx)
+                if (ntx>30)
+                    set(handles.txalarma,'String','ON')
+                end
+                if (ntx<=30)
+                    set(handles.txalarma,'String','OFF')
+                end
+                %}
+                % UIWAIT makes lab_sensorLuz wait for user response (see UIRESUME)
+                % uiwait(handles.figure1);
+                
+                
+                % --- Outputs from this function are returned to the command line.
+                function varargout = lab_sensorLuz_OutputFcn(hObject, eventdata, handles) 
+                % varargout  cell array for returning output args (see VARARGOUT);
+                % hObject    handle to figure
+                % eventdata  reserved - to be defined in a future version of MATLAB
+                % handles    structure with handles and user data (see GUIDATA)
+                
+                % Get default command line output from handles structure
+                varargout{1} = handles.output;
+                
+                
+                % --- Executes on button press in pushbutton1.
+                function pushbutton1_Callback(hObject, eventdata, handles)
+                % hObject    handle to pushbutton1 (see GCBO)
+                % eventdata  reserved - to be defined in a future version of MATLAB
+                % handles    structure with handles and user data (see GUIDATA)
+                
+                
+                % --- Executes on button press in togglebutton1.
+                function togglebutton1_Callback(hObject, eventdata, handles)
+                % hObject    handle to togglebutton1 (see GCBO)
+                % eventdata  reserved - to be defined in a future version of MATLAB
+                % handles    structure with handles and user data (see GUIDATA)
+                % Hint: get(hObject,'Value') returns toggle state of togglebutton1
+                ent=get(hObject,'Value')
+                global a ledPin;
+                if ent==1
+                    set(hObject,'Backgroundcolor',[0.953 0.871 0.733])
+                    set(handles.togglebutton1,'String','ACTI-LUZ');
+                    writeDigitalPin(a,ledPin,1);
+                    set(handles.txalarma,'String','ON');
+                else
+                    set(hObject,'Backgroundcolor',[0.941 0.941 0.941])
+                    set(handles.togglebutton1,'String','DESAC-LUZ');
+                    writeDigitalPin(a,ledPin,0);
+                    set(handles.txalarma,'String','OFF');
+                end
+                
+                
+                % --- Executes on button press in tbauto.
+                function tbauto_Callback(hObject, eventdata, handles)
+                % hObject    handle to tbauto (see GCBO)
+                % eventdata  reserved - to be defined in a future version of MATLAB
+                % handles    structure with handles and user data (see GUIDATA)
+                % Hint: get(hObject,'Value') returns toggle state of tbauto
+                ent2=get(hObject,'Value')
+                global a ledPin;
+                b=handles.metricdata.tmues;
+                if ent2==1
+                    set(handles.tbauto,'String','ACTIVADO');
+                    set(hObject,'Backgroundcolor',[1.0 0.843 0.0])
+                    y=[];%declaración de vector para cargar los datos sensados
+                    %clear all;
+                    %60 segundos de monitoreo
+                    %b=60
+                    for ciclof =1:b
+                        %writePWMDutyCycle(a,ledpinpwm,brightness);
+                        voltaje = readVoltage(a, 'A0')
+                        voltajetemp=voltaje*10
+                        %ntx=24.6786
+                        %voltajetemp=12;
+                        y(ciclof)=voltajetemp;
+                        %readPotentiometerUI(a)
+                        if (voltajetemp >= 37 )
+                            tx=num2str(voltajetemp)
+                            set(handles.txsensor,'String',tx)
+                            %a = arduino('COM5','NANO');
+                            %ledPin=13;
+                            writeDigitalPin(a,ledPin,1);
+                            set(handles.txalarma,'String','ON');
+                            %writeLedUI(a)
+                            fprintf('En el segundo %d',ciclof);
+                            fprintf('\n');
+                            disp('Encendida Luz Comercial')
+                        else 
+                            tx=num2str(voltajetemp)
+                            set(handles.txsensor,'String',tx)
+                            writeDigitalPin(a,ledPin,0);
+                            set(handles.txalarma,'String','OFF');
+                            fprintf('En el segundo %d',ciclof);
+                            fprintf('\n');
+                            disp('Apagada Luz Comercial')
+                        end
+                           pause(1);
+                    end
+                else
+                    set(hObject,'Backgroundcolor',[0.941 0.941 0.941])
+                    set(handles.tbauto,'String','DESACTIVADO');
+                    set(handles.txalarma,'String','xxxxx');
+                    set(handles.txsensor,'String','xxxxx');
+                    
+                end
+                
+                
+                
+                function tmues_Callback(hObject, eventdata, handles)
+                % hObject    handle to tmues (see GCBO)
+                % eventdata  reserved - to be defined in a future version of MATLAB
+                % handles    structure with handles and user data (see GUIDATA)
+                tmues = str2double(get(hObject, 'String'));
+                if isnan(tmues)
+                set(hObject, 'String', '------');
+                errordlg('NO SE RECONOCE COMO NUMERO','NO PERMITIDO');
+                end
+                handles.metricdata.tmues = tmues;
+                guidata(hObject,handles)
+                % Hints: get(hObject,'String') returns contents of tmues as text
+                %        str2double(get(hObject,'String')) returns contents of tmues as a double
+                
+                
+                % --- Executes during object creation,  after setting all properties.
+                function tmues_CreateFcn(hObject, eventdata, handles)
+                % hObject    handle to tmues (see GCBO)
+                % eventdata  reserved - to be defined in a future version of MATLAB
+                % handles    empty - handles not created until after all CreateFcns called
+                
+                % Hint: edit controls usually have a white background on Windows.
+                %       See ISPC and COMPUTER.
+                if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+                    set(hObject,'BackgroundColor','white');
+                end
+                
+                
+                % --- Executes during object creation, after setting all properties.
+                function figure1_CreateFcn(hObject, eventdata, handles)
+                % hObject    handle to figure1 (see GCBO)
+                % eventdata  reserved - to be defined in a future version of MATLAB
+                % handles    empty - handles not created until after all CreateFcns called
+                
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

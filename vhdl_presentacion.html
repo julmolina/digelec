@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VHDL - Presentación</title>
+    <link rel="stylesheet" href="styles1.css">
+</head>
+<style>
+    .body{
+        font-size: 16px;
+    }
+    .informacion1 {
+        h1 {
+            text-align: center;    
+        }
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0 10%;
+    }
+    .content {
+        display: flex;
+        flex-direction: column;
+    }
+
+</style>
+<body>
+    <nav class="navbar">
+        <ul class="nav-items">
+            <li class="nav-item">
+                <a href="index.html" class="nav-link">INICIO</a>
+            </li>
+            <li class="nav-item">
+                <img src="usco.png" alt="USCO Logo" class="nav-img">
+            </li>
+        </ul>
+    </nav>
+    <div class="informacion">
+        <h1>Presentación - VHDL</h1>
+        <p>Contenido específico  de VHDL en electrónica digital II</p>
+        
+    </div>
+    <div class="informacion1">
+        <h1>Lenguajes de descripción de Hardware</h1>
+        <div class="content">
+                <p>Estos lenguajes permiten a los diseñadores de circuitos describir la estructura y el comportamiento de sistemas electrónicos. Un lenguaje de descripción de hardware (HDL) es esencial para modelar y simular circuitos antes de implementarlos en hardware físico. Existen varios tipos de HDL, entre ellos Netlist, que describe conexiones directas entre componentes, y otros como VHDL, que permiten describir el comportamiento funcional del circuito.</p>
+                <ul>
+                    <li><strong>Netlist:</strong> Conjunto de instrucciones que indican el interconexionado entre los componentes de un diseño (Lista de conexiones).</li>
+                    <li><strong>HDL:</strong> Estos lenguajes permitieron solucionar el problema de describir un circuito NO por sus conexiones (Netlist), sino más bien por su funcionamiento.</li>
+                </ul>
+            </div>
+            <div class="section">
+                <h2>VHDL</h2>
+                <p><strong>Very High Speed Integrated Circuit HDL</strong></p>
+                <p>VHDL (Very High Speed Integrated Circuit Hardware Description Language) es un lenguaje de descripción de hardware utilizado para modelar circuitos electrónicos. Permite describir tanto la estructura como el comportamiento de los sistemas digitales. Con VHDL, los diseñadores pueden definir las entradas, salidas, y el funcionamiento interno de un circuito, facilitando la simulación y validación antes de su construcción física.</p>
+                <img src="vhdl_image.jpg" alt="VHDL" class="info-image">
+                <ul>
+                    <li><strong>Entidad (ENTITY):</strong> Define el símbolo del circuito, es decir, sus entradas y salidas.</li>
+                    <li><strong>Arquitectura (ARCHITECTURE):</strong> Permite definir el funcionamiento del módulo.</li>
+                </ul>
+                <img src="vhdl_nombremodo.jpg" alt="Descripción de la imagen relacionada con VHDL">
+            </div>
+            <div class="section">
+                <h2>Nombre</h2>
+                <p>En VHDL, los nombres se utilizan para identificar variables, señales, entidades y otros elementos dentro de un diseño. Es crucial seguir ciertas reglas de nomenclatura para garantizar la correcta interpretación del código, como comenzar con una letra, evitar caracteres no permitidos, y tener en cuenta que no es sensible a mayúsculas o minúsculas.</p>
+                <ul>
+                    <li>Puede contener letras, números y guion bajo.</li>
+                    <li>El primer carácter debe ser una letra.</li>
+                    <li>El último carácter no puede ser un guion bajo.</li>
+                    <li>No puede haber dos guiones bajos seguidos.</li>
+                    <li>No es sensible a mayúsculas y minúsculas. (Ejemplo: Salida1 = SALIDA1 = sALIDa1 = SaLiDa1).</li>
+                </ul>
+            </div>
+        
+            <div class="section">
+                <h2>Modo</h2>
+                <p>En VHDL, el modo se refiere a la dirección en la que fluyen los datos a través de las señales en una entidad. Los modos principales son in y out. Las señales con modo in son utilizadas como entradas para el circuito y no se les puede asignar un valor dentro del programa, mientras que las señales con modo out se utilizan como salidas, aunque no pueden ser leídas o utilizadas en el lado derecho de una asignación.</p>
+                <ul>
+                    <li><strong>in:</strong>
+                        <ul>
+                            <li>Señales de entrada.</li>
+                            <li>NO se puede asignarles ningún valor dentro del programa.</li>
+                        </ul>
+                    </li>
+                    <li><strong>out:</strong>
+                        <ul>
+                            <li>Señales de salida.</li>
+                            <li>No pueden leerse, es decir, NO pueden ser usadas a la derecha en una asignación.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        
+            <div class="section">
+                <h2>Tipo</h2>
+                <p>En VHDL, el tipo define la naturaleza de las señales y variables utilizadas en un diseño. Los tipos básicos incluyen Bit, que puede tomar valores lógicos de 0 y 1, y Bit_vector, que es una secuencia de bits. Otro tipo común es STD_LOGIC_VECTOR, que es ampliamente utilizado debido a su compatibilidad con diferentes niveles lógicos en sistemas digitales.</p>
+                <ul>
+                    <li><strong>Bit:</strong> Toma los valores 0 y 1 lógicos.</li>
+                    <li><strong>Bit_vector:</strong> Representa un vector de bits.</li>
+                    <li><strong>STD_LOGIC_VECTOR:</strong> Standard Logic Vector.</li>
+                </ul>
+            </div>
+            <div class="section">
+                <h2>Standard Logic</h2>
+                <p>Standard Logic es un conjunto de valores lógicos definidos en VHDL que permiten una mayor flexibilidad al modelar circuitos digitales. Estos valores incluyen, entre otros, ‘0’ para el cero lógico, ‘1’ para el uno lógico, ‘Z’ para alta impedancia, y ‘X’ para un valor desconocido. Estos valores ayudan a representar diversas condiciones y estados de señales dentro de un diseño.</p>
+                <ul>
+                    <li><strong>‘0’:</strong> Forcing 0, Cero lógico.</li>
+                    <li><strong>‘1’:</strong> Forcing 1, Uno lógico.</li>
+                    <li><strong>‘Z’:</strong> Alta impedancia.</li>
+                    <li><strong>‘-’:</strong> Don’t care.</li>
+                    <li><strong>‘X’:</strong> Forcing Unknown.</li>
+                    <li><strong>‘U’:</strong> Uninitialized.</li>
+                    <li><strong>‘W’:</strong> Weak Unknown.</li>
+                    <li><strong>‘L’:</strong> Weak 0.</li>
+                    <li><strong>‘H’:</strong> Weak 1.</li>
+                </ul>
+            </div>
+        
+            <div class="section">
+                <h2>Librerías y Paquetes</h2>
+                <p>Las librerías y paquetes en VHDL son colecciones de componentes y funciones predefinidas que pueden ser reutilizadas en diferentes diseños. Las librerías contienen paquetes, los cuales incluyen definiciones de tipos de datos, constantes y funciones que agilizan el proceso de diseño al evitar la necesidad de redefinir elementos comunes repetidamente.</p>
+                <ul>
+                    <li><strong>Librerías:</strong>
+                        <ul>
+                            <li>Colección de unidades de diseño (paquete) compiladas previamente para su posterior uso.</li>
+                            <li>Su función es agilizar el diseño y reutilizar componentes.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <img src="vhdl_libreria.jpg" alt="Descripción de la imagen relacionada con librerías y paquetes en VHDL">
+            </div>
+            <div class="section">
+                <h2>Arquitectura</h2>
+                <p>En VHDL, la arquitectura describe el comportamiento y la estructura interna de una entidad. Es en la arquitectura donde se especifica cómo debe funcionar el circuito. Se pueden definir múltiples arquitecturas para una misma entidad, lo que permite simular y comparar diferentes implementaciones del mismo diseño.</p>
+                <ul>
+                    <li>Determina el comportamiento del diseño.</li>
+                    <li>Se describe usando las sentencias propias del lenguaje VHDL.</li>
+                </ul>
+            </div>
+        
+            <div class="section">
+                <h2>Ejemplo Práctico</h2>
+                <p>Hola Mundo (Compuerta OR)</p>
+                <img src="vhdl_holamundo.jpg" alt="Ejemplo práctico de una compuerta OR en VHDL">
+            </div>
+        
+    </div>
+    <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/XFyu9JhG7Nw" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen></iframe>
+    </div>
+
+</body>
+</html>

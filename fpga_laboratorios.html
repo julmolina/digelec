@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FPGA - Laboratorios</title>
+    <!-- Incluir Prism.js -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .dropdown-menu select {
+            width: 100%;
+            max-width: 400px;
+            padding: 10px;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        .content-div {
+            display: none;
+            background-color: white;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .content-div.active {
+            display: block;
+        }
+        .content-div h2 {
+            font-family: 'Times New Roman', Times, serif;
+        }
+        pre {
+            background-color: #f5f2f0;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        code {
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="nav-items">
+            <li class="nav-item">
+                <a href="index.html" class="nav-link">INICIO</a>
+            </li>
+            <li class="nav-item">
+                <img src="usco.png" alt="USCO Logo" class="nav-img">
+            </li>
+        </ul>
+    </nav>
+    <div class="informacion">
+        <h1>Laboratorios - FPGA</h1>
+        <p>Contenido específico de laboratorios de FPGA.</p>
+        
+        <!-- Menú desplegable en la parte blanca -->
+        <div class="dropdown-menu">
+            <select id="dropdown" onchange="showContent()">
+                <option value="">Selecciona una práctica</option>
+                <option value="practica1">Práctica SEMÁFORO CON FPGA CYCLONE-5</option>
+                <option value="practica2">Práctica RELOG DIGITAL CON FPGA CYCLONE-5</option>
+                <option value="practica3">Práctica CONTADOR DIGITAL CON FPGA NANO</option>
+            </select>
+        </div>
+
+        <!-- Div para "Práctica máquina de estados SEMÁFORO" -->
+<div id="practica1" class="content-div">
+    <h2>Problemática</h2>
+    <p style="text-align: justify;">
+        Realizar el circuito de control de unos semáforos que se encuentran en un cruce entre un camino rural y una carretera. 
+        En principio, el semáforo del camino rural siempre está en rojo y el de la carretera en verde. Una célula en el camino rural detecta la presencia de un coche, 
+        momento en el cual el semáforo de la carretera pasa de verde a rojo pasando por el ámbar, al tiempo que el semáforo del camino se pone en verde. 
+        El semáforo del camino permanece en verde unos 10 segundos, momento en el cual empieza la secuencia de puesta a rojo, 
+        al tiempo que el semáforo de la carretera empieza la secuencia de cambio hacia el verde. El semáforo del camino no debe ponerse en verde otra vez hasta transcurridos 30 segundos por lo menos. El circuito tiene una entrada de reloj de 1 segundo de periodo y las señales de entrada y salida suficientes para el control del semáforo.
+        Como se da una señal de reloj como entrada, es interesante realizar la máquina de
+        estados de manera que sea sincrónica con este reloj, de esta manera se evitan problemas de metaestabilidad con las entradas, además de que las herramientas de síntesis interpretarán mejor que el circuito es una máquina de estados y el resultado será más óptimo. Junto con la máquina de estados habrá otros procesos que controlen los tiempos de espera mediante contadores.
+        Las entradas al sistema serán una señal de reset asíncrona, que es lo habitual, y las fotocélulas del camino, que indicarán un '1' cuando detecten un coche. Las salidas serán un total de 6: 3 para cada semáforo, indicando cada una de estas tres el color rojo;
+        ámbar y verde.
+        
+        La máquina de estados de la descripción se muestra en la figura 12.1. En cada estado se ha puesto lo que hace el contador; no se han puesto las salidas de los semáforos porque resultan evidentes dado el nombre del estado. Se han puesto también las señales que cambian el estado; si no se pone nada es que el cambio se realiza siempre. Esto funciona ya que hay estados donde hay que esperar un segundo, por tanto, basta esperar
+        al siguiente ciclo de reloj. La figura 12.2 muestra el diagrama de bloques de la descripción. Se muestra que el circuito está compuesto por la máquina de estados, el contador, y dos comparadores.
+    </p>
+<!-- Div para la "Solución" -->
+<h2>Solución</h2>
+            
+<!-- Video embebido de YouTube -->
+<iframe width="560" height="315" src="https://www.youtube.com/embed/-LhGkKMzTqA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<!-- Enlace a la carpeta de Google Drive -->
+<p>Puedes encontrar más recursos en el siguiente enlace: 
+    <a href="https://drive.google.com/drive/folders/1wD_6tKScwT9F8D5kB_KOOPWaL7mkrLHy" target="_blank">Carpeta de Google Drive</a>
+</p>
+</div>
+
+
+        <!-- PRACTICA 2 -->
+        <div id="practica2" class="content-div">
+            <h1>RELOG DIGITAL CON FPGA CYCLONE-5</h1>
+            <h2>Desarrollo</h2>
+            <img src="./pasoRelog.png" alt="Descripción de la imagen" width="860" height="314">
+            <h2>Problemática</h2>
+            <p style="text-align: justify;">
+            Desarrollar un reloj digital utilizando una FPGA con pantalla LED para visualizar el tiempo en formato de 24 horas. El sistema incluye la capacidad de adelantar minutos y horas manualmente, y se sincroniza mediante una señal de reloj de 1 Hz, asegurando precisión en el conteo. La arquitectura del reloj está diseñada para evitar problemas de metaestabilidad y optimizar el rendimiento, al estar sincronizada con el reloj de entrada.
+
+            Las entradas al sistema incluyen señales de habilitación, ajuste de horas y minutos, y un reset maestro. Las salidas se muestran en un display de 7 segmentos, indicando horas, minutos y segundos. El diseño se basa en una máquina de estados, donde cada estado controla la visualización y el avance del tiempo. La figura 5.1 presenta el diagrama de estados y la figura 5.2 muestra el diagrama de bloques, que incluye la máquina de estados, contadores y comparadores necesarios para el correcto funcionamiento del reloj.
+            </p>
+            <!-- Div para la "Solución" -->
+            
+                        
+            <!-- Video embebido de YouTube -->
+            <h2>Video del funcionamientode la CYCLONE-5</h2>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/kvFiTdmKSIQ?si=95E8GpZFlSBjWW8q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+     
+            <h2>CODIGO DEL RELOG DIGITAL</h2>
+
+            <h2>FASE: Divisor de frecuencia</h2>
+            <pre><code class="language-vhdl">
+    library IEEE;
+    use IEEE.std_logic_1164.all;
+    
+    entity FrequencyDivider is port(
+        clock50MHz : in std_logic;
+        enable : in std_logic;
+        clock1Hz : out std_logic;
+        clock5kHz : out std_logic
+    );
+    end FrequencyDivider;
+    
+    architecture divider of FrequencyDivider is
+        signal counter1: integer range 0 to 25000000 := 0;
+        signal counter2: integer range 0 to 5000000 := 0;
+    
+        signal iClock1Hz: std_logic;
+        signal iClock5kHz: std_logic;
+    
+    begin
+        div: process(clock50MHz) begin
+            if (enable = '1') then
+                if (rising_edge(clock50MHz)) then
+                    if (counter1 < 25000000) then
+                        counter1 <= counter1 + 1;
+                    else
+                        counter1 <= 0;
+                        iClock1Hz <= not iClock1Hz;
+                    end if;
+    
+                    if (counter2 < 5000000) then
+                        counter2 <= counter2 + 1;
+                    else
+                        counter2 <= 0;
+                        iClock5kHz <= not iClock5kHz;
+                    end if;
+                end if;
+            end if;
+        end process;
+    
+        clock1Hz <= iClock1Hz;
+        clock5kHz <= iClock5kHz;
+    
+    end divider;
+            </code></pre>
+    
+            <h2>FASE: Decodificador 7 segmentos</h2>
+            <pre><code class="language-vhdl">
+    library IEEE;
+    use IEEE.std_logic_1164.all;
+    
+    entity Decode7Segments is port(
+        inputDCBA: in std_logic_vector(3 downto 0);
+        sevenSegments: out std_logic_vector(6 downto 0)
+    );
+    end Decode7Segments;
+    
+    architecture Decoder of Decode7Segments is
+    begin
+        with inputDCBA select
+            sevenSegments <= "0000001" when "0000",
+                             "1001111" when "0001",
+                             "0010010" when "0010",
+                             "0000110" when "0011",
+                             "1001100" when "0100",
+                             "0100100" when "0101",
+                             "0100000" when "0110",
+                             "0001111" when "0111",
+                             "0000000" when "1000",
+                             "0000100" when "1009",
+                             "1111111" when others;
+    end Decoder;
+            </code></pre>
+    
+            <h2>FASE: Selector de frecuencia</h2>
+            <pre><code class="language-vhdl">
+    library IEEE;
+    use IEEE.std_logic_1164.all;
+    
+    entity FrequencySelector is port(
+        configMode: in std_logic;
+        setUpMode: in std_logic;
+        frequency: in std_logic;
+        frequency5kHz: in std_logic;
+        frequencyOutput: out std_logic
+    );
+    end FrequencySelector;
+    
+    architecture selector of FrequencySelector is
+        signal ifrequencyOutput: std_logic := '0';
+    begin
+        freq: process(frequency, frequency5kHz) begin
+            if(configMode = '1') then
+                if(setUpMode = '0') then
+                    ifrequencyOutput <= frequency5kHz;
+                else
+                    ifrequencyOutput <= '0';
+                end if;
+            else
+                ifrequencyOutput <= frequency;
+            end if;
+        end process;
+    
+        frequencyOutput <= ifrequencyOutput;
+    
+    end selector;
+            </code></pre>
+    
+            <h2>FASE: Formato 24 horas</h2>
+            <pre><code class="language-vhdl">
+    library IEEE;
+    use IEEE.std_logic_1164.all;
+    
+    entity Formater24H is port(
+        inputUnity: in std_logic_vector(3 downto 0);
+        inputTens: in std_logic_vector(3 downto 0);
+        outputReset: out std_logic
+    );
+    end Formater24H;
+    
+    architecture formater of Formater24H is
+    begin
+        process(inputUnity, inputTens) begin
+            if(inputUnity = "0011" and inputTens = "0010") then
+                outputReset <= '1';
+            else
+                outputReset <= '0';
+            end if;
+        end process;
+    end formater;
+            </code></pre>
+    
+            <h2>FASE: Tiempo en horas</h2>
+            <pre><code class="language-vhdl">
+    library IEEE;
+    use IEEE.std_logic_1164.all;
+    use IEEE.std_logic_unsigned.all;
+    use WORK.TimerPackage.all;
+    
+    entity Timer is
+        port (
+            clock: in std_logic;
+            masterClear1: in std_logic;
+            masterClear2: in std_logic;
+            enable: in std_logic;
+            inputDCBA: in std_logic_vector(3 downto 0);
+            displayUnity: out std_logic_vector(6 downto 0);
+            displayTens: out std_logic_vector(6 downto 0);
+            nextCounter: out std_logic
+        );
+    end Timer;
+    
+    architecture architectureOfTimers of Timer is
+        signal iClock1Hz: std_logic := '0';
+        signal iNextCounter1, iNextCounter2: std_logic := '0';
+    begin
+        iClock1Hz <= clock;
+    
+        UnityCounter: CounterDCBA port map (
+            clock => iClock1Hz,
+            clear => masterClear1,
+            masterClear => masterClear1,
+            outputDCBA => displayUnity,
+            nextCounter => iNextCounter1
+        );
+    
+        TensCounter: CounterDCBA port map (
+            clock => iNextCounter1,
+            clear => masterClear2,
+            masterClear => masterClear2,
+            outputDCBA => displayTens,
+            nextCounter => nextCounter
+        );
+    end architectureOfTimers;
+            </code></pre>
+    
+            <h2>FASE: Tiempo minutos</h2>
+            <pre><code class="language-vhdl">
+    library IEEE;
+    use IEEE.std_logic_1164.all;
+    use WORK.TimerPackage.all;
+    
+    entity Timer is
+        port (
+            clock: in std_logic;
+            masterClear1: in std_logic;
+            masterClear2: in std_logic;
+            enable: in std_logic;
+            inputDCBA: in std_logic_vector(3 downto 0);
+            displayUnity: out std_logic_vector(6 downto 0);
+            displayTens: out std_logic_vector(6 downto 0);
+            nextCounter: out std_logic
+        );
+    end Timer;
+    
+    architecture architectureOfTimers of Timer is
+        signal iClock1Hz: std_logic := '0';
+        signal iNextCounter1, iNextCounter2: std_logic := '0';
+    begin
+        iClock1Hz <= clock;
+    
+        UnityCounter: CounterDCBA port map (
+            clock => iClock1Hz,
+            clear => masterClear1,
+            masterClear => masterClear1,
+            outputDCBA => displayUnity,
+            nextCounter => iNextCounter1
+        );
+    
+        TensCounter: CounterDCBA port map (
+            clock => iNextCounter1,
+            clear => masterClear2,
+            masterClear => masterClear2,
+            outputDCBA => displayTens,
+            nextCounter => nextCounter
+        );
+    end architectureOfTimers;
+            </code></pre>
+    
+            <h2>FASE: Tiempo segundos</h2>
+            <pre><code class="language-vhdl">
+    library IEEE;
+    use IEEE.std_logic_1164.all;
+    use WORK.TimerPackage.all;
+    
+    entity Timer is
+        port (
+            clock: in std_logic;
+            masterClear1: in std_logic;
+            masterClear2: in std_logic;
+            enable: in std_logic;
+            inputDCBA: in std_logic_vector(3 downto 0);
+            displayUnity: out std_logic_vector(6 downto 0);
+            displayTens: out std_logic_vector(6 downto 0);
+            nextCounter: out std_logic
+        );
+    end Timer;
+    
+    architecture architectureOfTimers of Timer is
+        signal iClock1Hz: std_logic := '0';
+        signal iNextCounter1, iNextCounter2: std_logic := '0';
+    begin
+        iClock1Hz <= clock;
+    
+        UnityCounter: CounterDCBA port map (
+            clock => iClock1Hz,
+            clear => masterClear1,
+            masterClear => masterClear1,
+            outputDCBA => displayUnity,
+            nextCounter => iNextCounter1
+        );
+    
+        TensCounter: CounterDCBA port map (
+            clock => iNextCounter1,
+            clear => masterClear2,
+            masterClear => masterClear2,
+            outputDCBA => displayTens,
+            nextCounter => nextCounter
+        );
+    end architectureOfTimers;
+            </code></pre>
+    
+            <h2>FASE: Reloj digital</h2>
+            <pre><code class="language-vhdl">
+    library IEEE;
+    use IEEE.std_logic_1164.all;
+    use IEEE.std_logic_unsigned.all;
+    use WORK.ClockPackage.all;
+    
+    entity RelojFPGA is port(
+        clock50Hz: in std_logic;
+        enable: in std_logic;
+        masterClear: in std_logic;
+        hoursFormat: in std_logic;
+        trueMinutes: in std_logic;
+        trueHours: in std_logic;
+        displaySeconds: out std_logic_vector(6 downto 0);
+        displayMinutes: out std_logic_vector(6 downto 0);
+        displayHours: out std_logic_vector(6 downto 0)
+    );
+    end RelojFPGA;
+    
+    architecture architectureOfClock of RelojFPGA is
+        signal iClock1Hz: std_logic := '0';
+        signal iFrequencySelector1: std_logic := '0';
+        signal iFrequencySelector2: std_logic := '0';
+    
+        signal iNextCounterSTM: std_logic := '0';
+        signal iNextCounterMin: std_logic := '0';
+    
+        signal iDCBAseconds: std_logic_vector(3 downto 0);
+        signal iDCBAminutes: std_logic_vector(3 downto 0);
+        signal iDCBAhours: std_logic_vector(3 downto 0);
+        signal iDCBAseconds2: std_logic_vector(3 downto 0);
+        signal iDCBAminutes2: std_logic_vector(3 downto 0);
+        signal iDCBAhours2: std_logic_vector(3 downto 0);
+    
+        signal iFormater: std_logic := '0';
+    
+    begin
+        Convert50to1Hz: FrequencyDivider port map(
+            clock50MHz => clock50Hz,
+            clock1Hz => iClock1Hz,
+            enable => enable
+        );
+    
+        TimerSeconds: Timer port map(
+            clock => iClock1Hz,
+            displayUnity => iDCBAseconds,
+            displayTens => iDCBAseconds2,
+            nextCounter => iNextCounterSTM,
+            masterClear1 => masterClear,
+            masterClear2 => masterClear,
+            trueMinutes => "0010"
+        );
+    
+        MinutesFrequencySelector: FrequencySelector port map(
+            configMode => configMode,
+            setUpMode => setUpMode,
+            frequency => iNextCounterSTM,
+            frequency5kHz => iClock1Hz,
+            frequencyOutput => iFrequencySelector1
+        );
+    
+        TimerMinutes: Timer port map(
+            clock => iFrequencySelector1,
+            displayUnity => iDCBAminutes,
+            displayTens => iDCBAminutes2,
+            nextCounter => iNextCounterMin,
+            masterClear1 => masterClear,
+            masterClear2 => masterClear,
+            trueMinutes => "0110"
+        );
+    
+        HoursFrequencySelector: FrequencySelector port map(
+            configMode => configMode,
+            setUpMode => setUpMode,
+            frequency => iNextCounterMin,
+            frequency5kHz => iClock1Hz,
+            frequencyOutput => iFrequencySelector2
+        );
+    
+    end architectureOfClock;
+    
+    TimersHours: Timer port map(
+        clock => iFrequencySelector2,
+        displayUnity => iDCBAhours,
+        displayTens => iDCBAhours2,
+        masterClear1 => iFormater,
+        masterClear2 => iFormater,
+        trueUnity => "1010",
+        trueTens => "0010"
+    );
+    
+    FormaterHours: Formater24H port map(
+        inputUnity => iDCBAhours,
+        inputTens => iDCBAhours2,
+        outputReset => iFormater
+    );
+    
+    Decode1: Decode7Segments port map(
+        inputDCBA => iDCBAminutes,
+        sevenSegments => display1
+    );
+    
+    Decode2: Decode7Segments port map(
+        inputDCBA => iDCBAseconds2,
+        sevenSegments => display2
+    );
+    
+    Decode3: Decode7Segments port map(
+        inputDCBA => iDCBAhours,
+        sevenSegments => display3
+    );
+    
+    Decode4: Decode7Segments port map(
+        inputDCBA => iDCBAhours2,
+        sevenSegments => display4
+    );
+    
+    end architectureOfClock;
+            </code></pre>
+        </div>
+
+        <!-- PRACTUCA 3 -->
+        <div id="practica3" class="content-div">
+            <h2>Desarrollo</h2>
+            <img src="./pasoRelog.png" alt="Descripción de la imagen" width="860" height="314">
+            <h2>Problemática</h2>
+            <p style="text-align: justify;">
+                Desarrollar un contador con alarma utilizando una FPGA, capaz de contar hasta 9 y activar una alarma visual y sonora al alcanzar el valor máximo. El sistema incluye la capacidad de generar una advertencia visual (LED) cuando el contador está en un rango crítico (entre 5 y 9), y activa una alarma sonora (buzzer) cuando el conteo llega a su máximo. El contador se sincroniza mediante una señal de reloj de entrada, lo que asegura precisión en el conteo y la transición entre estados.
+
+                Las entradas al sistema incluyen señales de habilitación, un reset maestro para reiniciar el contador, y el reloj de entrada. Las salidas del sistema consisten en un display de 7 segmentos que visualiza el valor del contador, un LED de advertencia que se enciende en un estado crítico, y un buzzer que se activa cuando se llega al estado de alarma. El diseño está basado en una máquina de estados que maneja las transiciones entre los estados de conteo, advertencia, alarma y reinicio.
+            </p>
+            <!-- Div para la "Solución" -->
+            
+                        
+            <!-- Video embebido de YouTube -->
+            <h2>Video del funcionamientode la NANO</h2>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/f72RzESg7sQ?si=lTZa0KUq5nF1TPnq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+     
+            <h2>CODIGO DEL CONTADOR CON ALRMA</h2>
+            <h2>FASE: Librerías y Definición de la Entidad</h2>
+            <pre><code class="language-vhdl">
+    library IEEE;
+    use IEEE.STD_LOGIC_1164.ALL;
+    use IEEE.STD_LOGIC_ARITH.ALL;
+    use IEEE.STD_LOGIC_UNSIGNED.ALL;
+    
+    entity ContadorConAlarma is
+        Port ( clk : in STD_LOGIC;
+               reset : in STD_LOGIC;
+               display : out STD_LOGIC_VECTOR (6 downto 0);  -- Asumiendo un display de 7 segmentos
+               led_warning : out STD_LOGIC;
+               buzzer_alarm : out STD_LOGIC);
+    end ContadorConAlarma;
+            </code></pre>
+    
+            <h2>FASE: Arquitectura y Máquina de Estados</h2>
+            <pre><code class="language-vhdl">
+    architecture Behavioral of ContadorConAlarma is
+        type state_type is (START, COUNT, WARNING, ALARM, RESET);
+        signal state, next_state : state_type := START;
+        signal counter : integer range 0 to 9 := 0;
+    begin
+        -- Máquina de estados
+        process(clk, reset)
+        begin
+            if reset = '1' then
+                state <= START;
+                counter <= 0;
+            elsif rising_edge(clk) then
+                state <= next_state;
+            end if;
+        end process;
+    
+        -- Lógica de transición de estados
+        process(state, counter)
+        begin
+            case state is
+                when START =>
+                    if counter = 0 then
+                        next_state <= COUNT;
+                    else
+                        next_state <= START;
+                    end if;
+                    
+                when COUNT =>
+                    if counter < 9 then
+                        next_state <= COUNT;
+                        counter <= counter + 1;
+                    else
+                        next_state <= ALARM;
+                    end if;
+    
+                when WARNING =>
+                    if counter > 5 and counter < 9 then
+                        led_warning <= '1';  -- Enciende el LED de advertencia
+                        next_state <= COUNT;
+                    else
+                        next_state <= RESET;
+                    end if;
+    
+                when ALARM =>
+                    buzzer_alarm <= '1';  -- Activa el buzzer
+                    next_state <= RESET;
+    
+                when RESET =>
+                    led_warning <= '0';
+                    buzzer_alarm <= '0';
+                    counter <= 0;
+                    next_state <= START;
+            end case;
+        end process;
+        
+        -- Asignación de salida para el display de 7 segmentos (simplificado)
+        display <= "1111001" when counter = 0 else  -- Ejemplo para el número 0
+                  "0000000";  -- Completar para 1-9 según corresponda
+    end Behavioral;
+            </code></pre>
+    
+    </div>
+
+    <script>
+        function showContent() {
+            // Oculta todos los divs
+            var allDivs = document.querySelectorAll('.content-div');
+            allDivs.forEach(function(div) {
+                div.classList.remove('active');
+            });
+
+            // Muestra el div correspondiente a la opción seleccionada
+            var selectedValue = document.getElementById('dropdown').value;
+            if (selectedValue) {
+                document.getElementById(selectedValue).classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
